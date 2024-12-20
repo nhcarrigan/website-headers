@@ -14,7 +14,7 @@ Changelog: https://codeberg.org/nhcarrigan/website-headers/releases
 Licensed under our public license: https://docs.nhcarrigan.com/legal/license
 Questions? Contact us at https://docs.nhcarrigan.com/about/contact
 ========================================
-`)
+`);
 // #endregion
 
 // #region Query Selectors
@@ -198,12 +198,22 @@ const treeNation = document.createElement("script");
 treeNation.src
   = "https://widgets.tree-nation.com/js/widgets/v1/widgets.min.js?v=1.0";
 const treeNationBottom = document.createElement("script");
+treeNationBottom.defer = true;
+treeNationBottom.async = true;
 treeNationBottom.innerHTML = `
-TreeNationOffsetWebsite({
-  code: "a17464e0cd351220",
-  lang: "en",
-  theme: "dark",
-}).render("#tree-nation-offset-website");
+const interval = setInterval(() => {
+  const tree = document.querySelector("#tree-nation-offset-website");
+  if (!tree) {
+    console.log("DOM has not hydrated yet, cannot load TreeNation badge.");
+    return;
+  }
+  TreeNationOffsetWebsite({
+    code: "a17464e0cd351220",
+    lang: "en",
+    theme: "dark",
+  }).render("#tree-nation-offset-website");
+  clearInterval(interval);
+}, 1000);
 `;
 const fontAwesome = document.createElement("script");
 fontAwesome.src = "https://kit.fontawesome.com/f949111719.js";
@@ -219,8 +229,9 @@ window.$crisp=[];window.CRISP_WEBSITE_ID="5398ce41-4ceb-4e31-9049-4c784a70179a";
 const analytics = document.createElement("script");
 analytics.defer = true;
 analytics.setAttribute("domain", "nhcarrigan.com");
-// eslint-disable-next-line stylistic/max-len
-analytics.src = "https://analytics.nhcarrigan.com/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js";
+analytics.src
+  // eslint-disable-next-line stylistic/max-len
+  = "https://analytics.nhcarrigan.com/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js";
 const analytics2 = document.createElement("script");
 analytics2.innerHTML = `
 window.plausible = window.plausible ??
