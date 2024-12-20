@@ -1,0 +1,9 @@
+{
+  "extends": "@nhcarrigan/typescript-config",
+  "compilerOptions": {
+    "outDir": "./prod",
+    "rootDir": "./src",
+    "lib": ["DOM", "ESNext"],
+  },
+  "exclude": ["build.ts"]
+}

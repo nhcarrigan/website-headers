@@ -1,16 +1,10 @@
-# New Repository Template
+# Website Headers
 
-This template contains all of our basic files for a new GitHub repository. There is also a handy workflow that will create an issue on a new repository made from this template, with a checklist for the steps we usually take in setting up a new repository.
+This project generates a JavaScript file to be uploaded to our CDN. This file automatically generates metadata, favicons, styles, and scripts for all of our production pages.
 
-If you're starting a Node.JS project with TypeScript, we have a [specific template](https://github.com/naomi-lgbt/nodejs-typescript-template) for that purpose.
+To work on the file locally, you can serve the `index.html` file using your preferred application. Make changes to the `src/index.ts` file and run `pnpm build`, and the HTML will source the resulting JavaScript automatically.
 
-## Readme
-
-Delete all of the above text (including this line), and uncomment the below text to use our standard readme template.
-
-<!-- # Project Name
-
-Project Description
+When building the file, it is important to use `pnpm build` so that the minification step is run. Running `tsc` directly will bypass this step - while this is perfectly acceptable for debugging locally, the file MUST be minified before uploading to our CDN.
 
 ## Live Version
 
@@ -36,4 +30,4 @@ Copyright held by Naomi Carrigan.
 
 ## Contact
 
-We may be contacted through our [Chat Server](http://chat.nhcarrigan.com) or via email at `contact@nhcarrigan.com`. -->
+We may be contacted through our [Chat Server](http://chat.nhcarrigan.com) or via email at `contact@nhcarrigan.com`.
