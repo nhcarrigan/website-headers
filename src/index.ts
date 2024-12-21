@@ -9,7 +9,8 @@ const version = "{{ version }}";
 console.log(`
 ========================================
 Loading NHCarrigan library v${version}.
-Copyright (c) ${new Date().getFullYear()} NHCarrigan
+Copyright (c) ${new Date().getFullYear().
+  toString()} NHCarrigan
 Changelog: https://codeberg.org/nhcarrigan/website-headers/releases
 Licensed under our public license: https://docs.nhcarrigan.com/legal/license
 Questions? Contact us at https://docs.nhcarrigan.com/about/contact
@@ -115,6 +116,12 @@ styles.innerHTML = `
   --background: #abfcecdd;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   font-family: 'OpenDyslexic', monospace;
   cursor: url('https://cdn.nhcarrigan.com/cursors/cursor.cur'), auto;
@@ -145,6 +152,8 @@ main {
   width: 95%;
   max-width: 1080px;
   margin: auto;
+  margin-bottom: 100px;
+  padding: 10px;
 }
 footer {
   width: 100%;
@@ -155,13 +164,30 @@ footer {
   background-color: var(--background);
   position: fixed;
   bottom: 0;
+  height: 75px;
+  padding-left: 100px;
 }
 a {
   color: unset;
   cursor: url('https://cdn.nhcarrigan.com/cursors/pointer.cur'), pointer;
 }
-span[style*="background-image"][style*="crisp.chat/avatar/website"] {
-  bottom: 100px !important;
+#tree-nation-offset-website {
+  display: flex;
+  align-items: center;
+}
+#audio-theme-button {
+  background: none;
+  border: none;
+  cursor: url('https://cdn.nhcarrigan.com/cursors/pointer.cur'), pointer;
+  color: var(--foreground);
+}
+@media screen and (max-width: 600px) {
+  #tree-nation-offset-website {
+    display: none;
+  }
+  footer {
+    padding-right: 100px;
+  }
 }
 `;
 
@@ -175,7 +201,10 @@ footer.innerHTML = `
 <a href="https://chat.nhcarrigan.com" target="_blank" rel="noreferrer">
   <i class="fa-solid fa-comments"></i>
 </a>
-<div className="h-4/5" id="tree-nation-offset-website"></div>
+<button id="audio-theme-button" type="button">
+  <i class="fa-solid fa-play"></i>
+</button>
+<div id="tree-nation-offset-website"></div>
 `;
 
 const videoOverlay = document.createElement("video");
@@ -222,10 +251,6 @@ hubspot.src = "https://js.hs-scripts.com/47086586.js";
 hubspot.async = true;
 hubspot.defer = true;
 hubspot.id = "hs-script-loader";
-const crisp = document.createElement("script");
-crisp.innerHTML = `
-window.$crisp=[];window.CRISP_WEBSITE_ID="5398ce41-4ceb-4e31-9049-4c784a70179a";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
-`;
 const analytics = document.createElement("script");
 analytics.defer = true;
 analytics.setAttribute("domain", "nhcarrigan.com");
@@ -266,7 +291,6 @@ head?.appendChild(styles);
 head?.appendChild(treeNation);
 head?.appendChild(fontAwesome);
 head?.appendChild(hubspot);
-head?.appendChild(crisp);
 head?.appendChild(analytics);
 head?.appendChild(analytics2);
 
@@ -274,3 +298,20 @@ body?.appendChild(footer);
 body?.appendChild(videoOverlay);
 body?.appendChild(treeNationBottom);
 // #endregion
+
+// #region Audio
+
+const playButton = document.querySelector("#audio-theme-button");
+const audio = new Audio("https://cdn.nhcarrigan.com/theme.mp3");
+let playing = false;
+playButton?.addEventListener("click", () => {
+  if (playing) {
+    audio.pause();
+    playing = false;
+    playButton.innerHTML = "<i class=\"fa-solid fa-play\"></i>";
+  } else {
+    void audio.play();
+    playing = true;
+    playButton.innerHTML = "<i class=\"fa-solid fa-pause\"></i>";
+  }
+});

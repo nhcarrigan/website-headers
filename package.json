@@ -5,9 +5,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "dev": "concurrently \"pnpm build:watch\" \"pnpm start\"",
+    "prebuild": "pnpm lint",
     "build": "tsc && tsx build.ts",
+    "build:watch": "tsc --watch",
     "lint": "eslint src --max-warnings 0",
-    "start": "echo \"This is not an executable script. Please review the README for more instructions.\" && exit 1",
+    "start": "node --watch prod/develop.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,6 +20,7 @@
     "@nhcarrigan/eslint-config": "5.0.0",
     "@nhcarrigan/typescript-config": "4.0.0",
     "@types/node": "22.10.2",
+    "concurrently": "9.1.0",
     "eslint": "9.17.0",
     "globals": "15.14.0",
     "terser": "5.37.0",

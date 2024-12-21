@@ -2,7 +2,7 @@
 
 This project generates a JavaScript file to be uploaded to our CDN. This file automatically generates metadata, favicons, styles, and scripts for all of our production pages.
 
-To work on the file locally, you can serve the `index.html` file using your preferred application. Make changes to the `src/index.ts` file and run `pnpm build`, and the HTML will source the resulting JavaScript automatically.
+To work on the file locally, use `pnpm dev`. This command will compile the TypeScript into JavaScript and simultaneously run the resulting dev server in `src/develop.ts`. This allows you to iterate over changes quickly and watch them update in real time.
 
 When building the file, it is important to use `pnpm build` so that the minification step is run. Running `tsc` directly will bypass this step - while this is perfectly acceptable for debugging locally, the file MUST be minified before uploading to our CDN.
 
