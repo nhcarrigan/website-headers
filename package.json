@@ -11,7 +11,8 @@
     "build:watch": "tsc --watch",
     "lint": "eslint src --max-warnings 0",
     "start": "node --watch prod/develop.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scan": "SONAR_TOKEN='op://Environment Variables - Development/SonarCloud/website-headers' op run -- sonar-scanner -Dsonar.organization=nhcarrigan -Dsonar.projectKey=nhcarrigan_website-headers -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io"
   },
   "keywords": [],
   "author": "",

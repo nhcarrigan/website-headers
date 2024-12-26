@@ -218,6 +218,9 @@ videoOverlay.style.position = "fixed";
 videoOverlay.style.top = "0";
 videoOverlay.style.left = "0";
 videoOverlay.style.opacity = "0.25";
+videoOverlay.style.width = "100vw";
+videoOverlay.style.height = "100vh";
+videoOverlay.style.objectFit = "cover";
 
 // #endregion
 
