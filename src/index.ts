@@ -165,7 +165,7 @@ footer {
   position: fixed;
   bottom: 0;
   height: 75px;
-  padding-left: 100px;
+  padding: 0 10px;
 }
 a {
   color: unset;
@@ -184,9 +184,6 @@ a {
 @media screen and (max-width: 600px) {
   #tree-nation-offset-website {
     display: none;
-  }
-  footer {
-    padding-right: 100px;
   }
 }
 `;
@@ -221,6 +218,7 @@ videoOverlay.style.opacity = "0.25";
 videoOverlay.style.width = "100vw";
 videoOverlay.style.height = "100vh";
 videoOverlay.style.objectFit = "cover";
+videoOverlay.style.zIndex = "10000";
 
 // #endregion
 
@@ -249,11 +247,6 @@ const interval = setInterval(() => {
 `;
 const fontAwesome = document.createElement("script");
 fontAwesome.src = "https://kit.fontawesome.com/f949111719.js";
-const hubspot = document.createElement("script");
-hubspot.src = "https://js.hs-scripts.com/47086586.js";
-hubspot.async = true;
-hubspot.defer = true;
-hubspot.id = "hs-script-loader";
 const analytics = document.createElement("script");
 analytics.defer = true;
 analytics.setAttribute("domain", "nhcarrigan.com");
@@ -293,7 +286,6 @@ head?.appendChild(styles);
 
 head?.appendChild(treeNation);
 head?.appendChild(fontAwesome);
-head?.appendChild(hubspot);
 head?.appendChild(analytics);
 head?.appendChild(analytics2);
 
@@ -318,3 +310,64 @@ playButton?.addEventListener("click", () => {
     playButton.innerHTML = "<i class=\"fa-solid fa-pause\"></i>";
   }
 });
+
+// #endregion
+
+// #region CTA
+
+const cta = document.createElement("dialog");
+cta.style.position = "fixed";
+cta.style.top = "50%";
+cta.style.left = "50%";
+cta.style.transform = "translate(-50%, -50%)";
+cta.style.padding = "10px";
+cta.style.borderRadius = "10px";
+cta.style.backgroundColor = "var(--background)";
+cta.style.color = "var(--foreground)";
+cta.style.textAlign = "center";
+cta.style.width = "95%";
+cta.style.maxWidth = "400px";
+cta.id = "community-cta";
+cta.innerHTML = `
+  <h1 autofocus>Hello~!</h1>
+  <div style="display: flex; justify-content: space-around; margin-bottom: 10px;">
+    <img src="https://cdn.nhcarrigan.com/profile.png" alt="Naomi Carrigan" style="width: 100px; height: 100px; border-radius: 50%;">
+    <p>
+      Consider joining our community so you can keep up to date on all of our latest activities!
+    </p>
+  </div>
+  <a href="https://chat.nhcarrigan.com" target="_blank" rel="noreferrer" style="padding: 10px; background: var(--foreground); color: var(--background); outline: none">Okay, take me there~!</a>
+`;
+
+const modalBg = document.createElement("div");
+modalBg.style.zIndex = "4999";
+modalBg.style.position = "fixed";
+modalBg.style.top = "0";
+modalBg.style.left = "0";
+modalBg.style.width = "100vw";
+modalBg.style.height = "100vh";
+modalBg.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+modalBg.style.display = "none";
+modalBg.id = "modal-bg";
+const closeModal = (): void => {
+  cta.close();
+  modalBg.style.display = "none";
+};
+const handleModalClick = (event: MouseEvent): void => {
+  event.stopPropagation();
+  if (event.target === cta) {
+    closeModal();
+  }
+};
+const showModal = (): void => {
+  cta.showModal();
+  modalBg.style.display = "block";
+  modalBg.addEventListener("click", closeModal);
+  const closeButton = cta.querySelector("button");
+  closeButton?.addEventListener("click", closeModal);
+  cta.addEventListener("click", handleModalClick);
+};
+
+body?.appendChild(cta);
+body?.appendChild(modalBg);
+showModal();

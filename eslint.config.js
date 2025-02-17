@@ -12,7 +12,8 @@ export default [
   },
   {
     rules: {
-      "no-console": "off"
+      "no-console": "off",
+      "max-lines": "off"
     }
   }
 ];
