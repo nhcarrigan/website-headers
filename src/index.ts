@@ -360,12 +360,24 @@ const handleModalClick = (event: MouseEvent): void => {
   }
 };
 const showModal = (): void => {
+  const lastShown = Number.parseInt(
+    localStorage.getItem("naomi-community-cta") ?? "0",
+    10,
+  );
+  const lastShownDate = new Date(lastShown);
+  const diff = Date.now() - lastShownDate.getTime();
+  console.table({ diff, lastShown, lastShownDate });
+  // We only want to show this once a week.
+  if (diff < 1000 * 60 * 60 * 24 * 7) {
+    return;
+  }
   cta.showModal();
   modalBg.style.display = "block";
   modalBg.addEventListener("click", closeModal);
   const closeButton = cta.querySelector("button");
   closeButton?.addEventListener("click", closeModal);
   cta.addEventListener("click", handleModalClick);
+  localStorage.setItem("naomi-community-cta", Date.now().toString());
 };
 
 body?.appendChild(cta);
