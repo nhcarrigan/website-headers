@@ -112,8 +112,8 @@ styles.innerHTML = `
 }
 
 :root {
-  --foreground: #04624f;
-  --background: #abfcecdd;
+  --foreground: #db7093;
+  --background: #ffefefdd;
 }
 
 * {
