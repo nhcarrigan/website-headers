@@ -42,7 +42,7 @@ openGraphDescription.setAttribute("property", "og:description");
 openGraphDescription.setAttribute(
   "content",
   description?.getAttribute("content")
-    // eslint-disable-next-line stylistic/max-len
+
     ?? "We are a software engineering and community management consulting firm.",
 );
 const openGraphImage = document.createElement("meta");
@@ -75,7 +75,7 @@ twitterDescription.setAttribute("name", "twitter:description");
 twitterDescription.setAttribute(
   "content",
   description?.getAttribute("content")
-    // eslint-disable-next-line stylistic/max-len
+
     ?? "We are a software engineering and community management consulting firm.",
 );
 const twitterImage = document.createElement("meta");
@@ -152,20 +152,35 @@ main {
   width: 95%;
   max-width: 1080px;
   margin: auto;
-  margin-bottom: 100px;
+  margin-bottom: 105px;
   padding: 10px;
 }
 footer {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   color: var(--foreground);
   background-color: var(--background);
   position: fixed;
   bottom: 0;
-  height: 75px;
+  height: 95px;
   padding: 0 10px;
+}
+#footer-inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 75px;
+}
+#footer-badge-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  align-items: center;
+  justify-content: space-around;
+}
+#audio-theme-button {
+  background: none;
+  border: none;
+  cursor: url('https://cdn.nhcarrigan.com/cursors/pointer.cur'), pointer;
+  color: var(--foreground);
 }
 a {
   color: unset;
@@ -175,15 +190,42 @@ a {
   display: flex;
   align-items: center;
 }
-#audio-theme-button {
-  background: none;
-  border: none;
-  cursor: url('https://cdn.nhcarrigan.com/cursors/pointer.cur'), pointer;
-  color: var(--foreground);
+@media screen and (prefers-reduced-motion) {
+  #footer-badge-container {
+    display: none;
+  }
+  footer, #footer-inner-container {
+    height: 75px;
+    justify-content: space-around;
+  }
+  main {
+    margin-bottom: 85px;
+  }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1225px) {
+  #footer-badge-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  footer {
+    height: 120px;
+  }
+  main {
+    margin-bottom: 130px;
+  }
+}
+@media screen and (max-width: 625px) {
   #tree-nation-offset-website {
     display: none;
+  }
+  #footer-badge-container {
+    display: none;
+  }
+  footer, #footer-inner-container {
+    height: 50px;
+    justify-content: space-around;
+  }
+  main {
+    margin-bottom: 60px;
   }
 }
 `;
@@ -194,6 +236,17 @@ a {
 
 const footer = document.createElement("footer");
 footer.innerHTML = `
+<div id="footer-badge-container">
+  <img src="https://cdn.nhcarrigan.com/blinkies/bigots.gif" alt="no bigots allowed"/>
+  <img src="https://cdn.nhcarrigan.com/blinkies/blm.gif" alt="black lives matter"/>
+  <img src="https://cdn.nhcarrigan.com/blinkies/miku.gif" alt="miku fan!!!"/>
+  <img src="https://cdn.nhcarrigan.com/blinkies/neuro.gif" alt="neurodivergent pride"/>
+  <img src="https://cdn.nhcarrigan.com/blinkies/palestine.gif" alt="free palestine"/>
+  <img src="https://cdn.nhcarrigan.com/blinkies/technomancer.gif" alt="technomancer"/>
+  <img src="https://cdn.nhcarrigan.com/blinkies/trans.gif" alt="trans rights!!!"/>
+  <img src="https://cdn.nhcarrigan.com/blinkies/ukraine.gif" alt="glory to ukraine"/>
+</div>
+<div id="footer-inner-container">
 <p>&copy; Naomi Carrigan</p>
 <a href="https://chat.nhcarrigan.com" target="_blank" rel="noreferrer">
   <i class="fa-solid fa-comments"></i>
@@ -202,6 +255,7 @@ footer.innerHTML = `
   <i class="fa-solid fa-play"></i>
 </button>
 <div id="tree-nation-offset-website"></div>
+</div>
 `;
 
 const videoOverlay = document.createElement("video");
