@@ -42,7 +42,7 @@ openGraphDescription.setAttribute("property", "og:description");
 openGraphDescription.setAttribute(
   "content",
   description?.getAttribute("content")
-
+    // eslint-disable-next-line stylistic/max-len
     ?? "We are a software engineering and community management consulting firm.",
 );
 const openGraphImage = document.createElement("meta");
@@ -75,7 +75,7 @@ twitterDescription.setAttribute("name", "twitter:description");
 twitterDescription.setAttribute(
   "content",
   description?.getAttribute("content")
-
+    // eslint-disable-next-line stylistic/max-len
     ?? "We are a software engineering and community management consulting firm.",
 );
 const twitterImage = document.createElement("meta");
