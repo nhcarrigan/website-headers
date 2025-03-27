@@ -113,7 +113,7 @@ styles.innerHTML = `
 
 :root {
   --foreground: #db7093;
-  --background: #ffefefdd;
+  --background: #ffefefbb;
 }
 
 * {
@@ -176,7 +176,7 @@ footer {
   align-items: center;
   justify-content: space-around;
 }
-#audio-theme-button {
+#audio-theme-button, #theme-select-button {
   background: none;
   border: none;
   cursor: url('https://cdn.nhcarrigan.com/cursors/pointer.cur'), pointer;
@@ -189,6 +189,10 @@ a {
 #tree-nation-offset-website {
   display: flex;
   align-items: center;
+}
+.is-dark {
+  --foreground: #ffefef;
+  --background: #db7093bb;
 }
 @media screen and (prefers-reduced-motion) {
   #footer-badge-container {
@@ -251,6 +255,9 @@ footer.innerHTML = `
 <a href="https://chat.nhcarrigan.com" target="_blank" rel="noreferrer">
   <i class="fa-solid fa-comments"></i>
 </a>
+<button id="theme-select-button" type="button">
+  <i id="theme-select-icon" class="fa-solid fa-moon"></i>
+</button>
 <button id="audio-theme-button" type="button">
   <i class="fa-solid fa-play"></i>
 </button>
@@ -364,6 +371,40 @@ playButton?.addEventListener("click", () => {
     playButton.innerHTML = "<i class=\"fa-solid fa-pause\"></i>";
   }
 });
+
+// #endregion
+
+// #region Theme
+
+const themeButton = document.querySelector("#theme-select-button");
+const themeIcon = document.querySelector("#theme-select-icon");
+if (localStorage.getItem("theme") === "dark") {
+  themeIcon?.classList.remove("fa-moon");
+  themeIcon?.classList.add("fa-sun");
+  document.querySelector("html")?.classList.add("is-dark");
+}
+const toggleTheme = (): void => {
+  const currentTheme = localStorage.getItem("theme");
+  if (currentTheme === "dark") {
+    localStorage.setItem("theme", "light");
+    themeIcon?.classList.remove("fa-sun");
+    themeIcon?.classList.add("fa-moon");
+    document.querySelector("html")?.classList.remove("is-dark");
+    return;
+  }
+  localStorage.setItem("theme", "dark");
+  themeIcon?.classList.remove("fa-moon");
+  themeIcon?.classList.add("fa-sun");
+  document.querySelector("html")?.classList.add("is-dark");
+};
+themeButton?.addEventListener("click", toggleTheme);
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+if (prefersDark.matches && localStorage.getItem("theme") !== null) {
+  localStorage.setItem("theme", "dark");
+  themeIcon?.classList.remove("fa-moon");
+  themeIcon?.classList.add("fa-sun");
+  document.querySelector("html")?.classList.add("is-dark");
+}
 
 // #endregion
 
