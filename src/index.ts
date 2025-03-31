@@ -112,8 +112,8 @@ styles.innerHTML = `
 }
 
 :root {
-  --foreground: #db7093;
-  --background: #ffefefbb;
+  --foreground: #2a0a18;
+  --background: #ffb6c1bb;
 }
 
 * {
@@ -191,8 +191,8 @@ a {
   align-items: center;
 }
 .is-dark {
-  --foreground: #ffefef;
-  --background: #db7093bb;
+  --foreground: #ffb6c1;
+  --background: #2a0a18bb;
 }
 @media screen and (prefers-reduced-motion) {
   #footer-badge-container {
