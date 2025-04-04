@@ -24,7 +24,7 @@ const body = document.querySelector("body");
 const title = document.querySelector("title");
 const description = document.querySelector(`meta[name="description"]`);
 
-const { href: url, hostname } = window.location;
+const { href: url, hostname, pathname } = window.location;
 
 // #endregion
 
@@ -314,6 +314,10 @@ analytics.setAttribute("domain", "nhcarrigan.com");
 analytics.src
   // eslint-disable-next-line stylistic/max-len
   = "https://analytics.nhcarrigan.com/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js";
+analytics.setAttribute("event-domain", hostname);
+analytics.setAttribute("data-domain", "nhcarrigan.com");
+analytics.setAttribute("event-page", title?.innerText ?? "Unknown Page");
+analytics.setAttribute("event-path", pathname);
 const analytics2 = document.createElement("script");
 analytics2.innerHTML = `
 window.plausible = window.plausible ??
