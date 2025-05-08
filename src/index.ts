@@ -265,22 +265,6 @@ footer.innerHTML = `
 </div>
 `;
 
-const videoOverlay = document.createElement("video");
-videoOverlay.autoplay = true;
-videoOverlay.loop = true;
-videoOverlay.muted = true;
-videoOverlay.playsInline = true;
-videoOverlay.src = "https://cdn.nhcarrigan.com/overlay.webm";
-videoOverlay.style.pointerEvents = "none";
-videoOverlay.style.position = "fixed";
-videoOverlay.style.top = "0";
-videoOverlay.style.left = "0";
-videoOverlay.style.opacity = "0.25";
-videoOverlay.style.width = "100vw";
-videoOverlay.style.height = "100vh";
-videoOverlay.style.objectFit = "cover";
-videoOverlay.style.zIndex = "10000";
-
 // #endregion
 
 // #region Scripts
@@ -355,7 +339,6 @@ head?.appendChild(analytics);
 head?.appendChild(analytics2);
 
 body?.appendChild(footer);
-body?.appendChild(videoOverlay);
 body?.appendChild(treeNationBottom);
 // #endregion
 
