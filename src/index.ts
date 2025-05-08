@@ -430,7 +430,7 @@ cta.id = "community-cta";
 cta.innerHTML = `
   <h1 autofocus>Hello~!</h1>
   <div style="display: flex; justify-content: space-around; margin-bottom: 10px;">
-    <img src="https://cdn.nhcarrigan.com/profile.png" alt="Naomi Carrigan" style="width: 100px; height: 100px; border-radius: 50%;">
+    <img src="https://cdn.nhcarrigan.com/logo.png" alt="NHCarrigan Logo" style="width: 100px; height: 100px; border-radius: 50%;">
     <p>
       Consider joining our community so you can keep up to date on all of our latest activities!
     </p>
