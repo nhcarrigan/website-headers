@@ -42,7 +42,7 @@ openGraphDescription.setAttribute("property", "og:description");
 openGraphDescription.setAttribute(
   "content",
   description?.getAttribute("content")
-    // eslint-disable-next-line stylistic/max-len
+  // eslint-disable-next-line stylistic/max-len -- big boi string
     ?? "We are a software engineering and community management consulting firm.",
 );
 const openGraphImage = document.createElement("meta");
@@ -75,7 +75,7 @@ twitterDescription.setAttribute("name", "twitter:description");
 twitterDescription.setAttribute(
   "content",
   description?.getAttribute("content")
-    // eslint-disable-next-line stylistic/max-len
+  // eslint-disable-next-line stylistic/max-len -- big boi string
     ?? "We are a software engineering and community management consulting firm.",
 );
 const twitterImage = document.createElement("meta");
@@ -309,6 +309,12 @@ function() {
   (window.plausible.q = window.plausible.q ?? []).push(arguments) 
 }
 `;
+const googleAdsense = document.createElement("script");
+googleAdsense.async = true;
+googleAdsense.src
+  // eslint-disable-next-line stylistic/max-len -- big boi string
+  = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3569924701890974";
+googleAdsense.setAttribute("crossorigin", "anonymous");
 
 // #endregion
 
@@ -337,6 +343,7 @@ head?.appendChild(treeNation);
 head?.appendChild(fontAwesome);
 head?.appendChild(analytics);
 head?.appendChild(analytics2);
+head?.appendChild(googleAdsense);
 
 body?.appendChild(footer);
 body?.appendChild(treeNationBottom);
