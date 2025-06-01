@@ -152,7 +152,7 @@ main {
   width: 95%;
   max-width: 1080px;
   margin: auto;
-  margin-bottom: 105px;
+  margin-bottom: 85px;
   padding: 10px;
 }
 footer {
@@ -161,7 +161,7 @@ footer {
   background-color: var(--background);
   position: fixed;
   bottom: 0;
-  height: 95px;
+  height: 75px;
   padding: 0 10px;
 }
 #footer-inner-container {
@@ -194,34 +194,8 @@ a {
   --foreground: #ffb6c1;
   --background: #2a0a18bb;
 }
-@media screen and (prefers-reduced-motion) {
-  #footer-badge-container {
-    display: none;
-  }
-  footer, #footer-inner-container {
-    height: 75px;
-    justify-content: space-around;
-  }
-  main {
-    margin-bottom: 85px;
-  }
-}
-@media screen and (max-width: 1225px) {
-  #footer-badge-container {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  footer {
-    height: 120px;
-  }
-  main {
-    margin-bottom: 130px;
-  }
-}
 @media screen and (max-width: 625px) {
   #tree-nation-offset-website {
-    display: none;
-  }
-  #footer-badge-container {
     display: none;
   }
   footer, #footer-inner-container {
@@ -240,16 +214,6 @@ a {
 
 const footer = document.createElement("footer");
 footer.innerHTML = `
-<div id="footer-badge-container">
-  <img src="https://cdn.nhcarrigan.com/blinkies/bigots.gif" alt="no bigots allowed"/>
-  <img src="https://cdn.nhcarrigan.com/blinkies/blm.gif" alt="black lives matter"/>
-  <img src="https://cdn.nhcarrigan.com/blinkies/miku.gif" alt="miku fan!!!"/>
-  <img src="https://cdn.nhcarrigan.com/blinkies/neuro.gif" alt="neurodivergent pride"/>
-  <img src="https://cdn.nhcarrigan.com/blinkies/palestine.gif" alt="free palestine"/>
-  <img src="https://cdn.nhcarrigan.com/blinkies/technomancer.gif" alt="technomancer"/>
-  <img src="https://cdn.nhcarrigan.com/blinkies/trans.gif" alt="trans rights!!!"/>
-  <img src="https://cdn.nhcarrigan.com/blinkies/ukraine.gif" alt="glory to ukraine"/>
-</div>
 <div id="footer-inner-container">
 <p>&copy; Naomi Carrigan</p>
 <a href="https://chat.nhcarrigan.com" target="_blank" rel="noreferrer">
@@ -258,9 +222,9 @@ footer.innerHTML = `
 <button id="theme-select-button" type="button">
   <i id="theme-select-icon" class="fa-solid fa-moon"></i>
 </button>
-<button id="audio-theme-button" type="button">
-  <i class="fa-solid fa-play"></i>
-</button>
+<a href="https://buy.stripe.com/cN24iTfqu1j6b3afZ2" target="_blank" rel="noreferrer">
+  <img src="https://cdn.nhcarrigan.com/donate.png" alt="Donate" style="width: 70px; height: 70px;">
+</a>
 <div id="tree-nation-offset-website"></div>
 </div>
 `;
