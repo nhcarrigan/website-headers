@@ -215,7 +215,7 @@ a {
 const footer = document.createElement("footer");
 footer.innerHTML = `
 <div id="footer-inner-container">
-<p>&copy; Naomi Carrigan</p>
+<p>&copy; <a href="https://nhcarrigan.com" target="_blank">Naomi Carrigan</a></p>
 <a href="https://chat.nhcarrigan.com" target="_blank" rel="noreferrer">
   <i class="fa-solid fa-comments"></i>
 </a>
