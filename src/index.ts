@@ -105,6 +105,7 @@ largeIcon.href = "https://cdn.nhcarrigan.com/favicon/favicon-32x32.png";
 // #region Styles
 
 const styles = document.createElement("style");
+styles.id = "nhcarrigan-global-styles";
 styles.innerHTML = `
 @font-face {
   font-family: 'OpenDyslexic';
