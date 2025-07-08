@@ -177,11 +177,16 @@ footer {
   align-items: center;
   justify-content: space-around;
 }
-#audio-theme-button, #theme-select-button {
+#show-socials-button, #theme-select-button {
   background: none;
   border: none;
   cursor: url('https://cdn.nhcarrigan.com/cursors/pointer.cur'), pointer;
   color: var(--foreground);
+  font-size: 1rem;
+  font-family: 'OpenDyslexic', monospace;
+}
+#show-socials-button > i, #theme-select-button > i {
+  font-size: 1.5rem;
 }
 a {
   color: unset;
@@ -190,6 +195,37 @@ a {
 #tree-nation-offset-website {
   display: flex;
   align-items: center;
+}
+#social-list {
+  position: absolute;
+  bottom: 75px;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  max-width: 400px;
+  padding: 10px;
+  background-color: var(--background);
+  color: var(--foreground);
+  border-radius: 10px;
+  border: 1px solid var(--foreground);
+  display: none;
+  z-index: 1000;
+}
+.social-list-item {
+  padding: 10px;
+}
+.social-list-item > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+}
+.social-list-divider {
+  border: 0.5px solid var(--foreground);
+}
+.social-list-item:hover {
+  background-color: var(--foreground);
+  color: var(--background);
 }
 .is-dark {
   --foreground: #ffb6c1;
@@ -217,21 +253,73 @@ const footer = document.createElement("footer");
 footer.innerHTML = `
 <div id="footer-inner-container">
 <p>&copy; <a href="https://nhcarrigan.com" target="_blank">Naomi Carrigan</a></p>
-<a href="https://chat.nhcarrigan.com" target="_blank" rel="noreferrer">
-  <i class="fa-solid fa-comments"></i>
-</a>
+<button id="show-socials-button" type="button">
+  <i class="fa-solid fa-share-nodes"></i> Connect with Us
+</button>
 <button id="theme-select-button" type="button">
-  <i id="theme-select-icon" class="fa-solid fa-moon"></i>
+  <i id="theme-select-icon" class="fa-solid fa-moon"></i> Toggle Theme
 </button>
 <a href="https://buy.stripe.com/cN24iTfqu1j6b3afZ2" target="_blank" rel="noreferrer">
   <img src="https://cdn.nhcarrigan.com/donate.png" alt="Donate" style="width: 70px; height: 70px;">
 </a>
 <div id="tree-nation-offset-website"></div>
 </div>
+<div id="social-list">
+  <div class="social-list-item">
+    <a href="https://chat.nhcarrigan.com" target="_blank" rel="noreferrer">
+      <i class="fa-brands fa-discord"></i><span>Join our Discord~!</span>
+    </a>
+  </div>
+  <hr class="social-list-divider" />
+  <div class="social-list-item">
+    <a href="https://forum.nhcarrigan.com" target="_blank" rel="noreferrer">
+      <i class="fa-brands fa-discourse"></i><span>Sign up for our forum~!</span>
+    </a>
+  </div>
+  <hr class="social-list-divider" />
+  <div class="social-list-item">
+    <a href="https://git.nhcarrigan.com" target="_blank" rel="noreferrer">
+      <i class="fa-brands fa-git-alt"></i><span>Check out our source code~!</span>
+    </a>
+  </div>
+  <hr class="social-list-divider" />
+  <div class="social-list-item">
+    <a href="https://bsky.app/profile/nhcarrigan.com" target="_blank" rel="noreferrer">
+      <i class="fa-brands fa-bluesky"></i><span>Follow us on Bluesky~!</span>
+    </a>
+  </div>
+  <hr class="social-list-divider" />
+  <div class="social-list-item">
+    <a href="https://www.linkedin.com/company/nhcarrigan" target="_blank" rel="noreferrer">
+      <i class="fa-brands fa-linkedin"></i><span>Connect with us on LinkedIn~!</span>
+    </a>
+  </div>
+  <hr class="social-list-divider" />
+  <div class="social-list-item">
+    <a href="https://www.reddit.com/r/nhcarrigan/" target="_blank" rel="noreferrer">
+      <i class="fa-brands fa-reddit"></i><span>Join our subreddit~!</span>
+    </a>
+  </div>
+  <hr class="social-list-divider" />
+  <div class="social-list-item">
+    <a href="https://www.youtube.com/@naomilgbt" target="_blank" rel="noreferrer">
+      <i class="fa-brands fa-youtube"></i><span>Subscribe to our YouTube~!</span>
+    </a>
+  </div>
+    <hr class="social-list-divider" />
+  <div class="social-list-item">
+    <a href="https://twitch.tv/naomilgbt" target="_blank" rel="noreferrer">
+      <i class="fa-brands fa-twitch"></i><span>Subscribe to our Twitch~!</span>
+    </a>
+  </div>
+    <hr class="social-list-divider" />
+  <div class="social-list-item">
+    <a href="https://x.com/nhcarrigan1" target="_blank" rel="noreferrer">
+      <i class="fa-brands fa-twitter"></i><span>We are even on Twitter~!</span>
+    </a>
+  </div>
+</div>
 `;
-
-// #endregion
-
 // #region Scripts
 
 const treeNation = document.createElement("script");
@@ -314,25 +402,6 @@ body?.appendChild(footer);
 body?.appendChild(treeNationBottom);
 // #endregion
 
-// #region Audio
-
-const playButton = document.querySelector("#audio-theme-button");
-const audio = new Audio("https://cdn.nhcarrigan.com/theme.mp3");
-let playing = false;
-playButton?.addEventListener("click", () => {
-  if (playing) {
-    audio.pause();
-    playing = false;
-    playButton.innerHTML = "<i class=\"fa-solid fa-play\"></i>";
-  } else {
-    void audio.play();
-    playing = true;
-    playButton.innerHTML = "<i class=\"fa-solid fa-pause\"></i>";
-  }
-});
-
-// #endregion
-
 // #region Theme
 
 const themeButton = document.querySelector("#theme-select-button");
@@ -366,6 +435,27 @@ if (prefersDark.matches && localStorage.getItem("theme") !== null) {
 }
 
 // #endregion
+
+// #region Social Toggle
+const showSocialsButton = document.querySelector<HTMLButtonElement>(
+  "#show-socials-button",
+);
+const socialList = document.querySelector<HTMLDivElement>("#social-list");
+const toggleSocials = (): void => {
+  if (!socialList) {
+    throw new Error("Social list element not found.");
+  }
+  if (socialList.style.display === "block") {
+    socialList.style.display = "none";
+    showSocialsButton?.setAttribute("aria-expanded", "false");
+    showSocialsButton?.setAttribute("aria-label", "Show Socials");
+    return;
+  }
+  socialList.style.display = "block";
+  showSocialsButton?.setAttribute("aria-expanded", "true");
+  showSocialsButton?.setAttribute("aria-label", "Hide Socials");
+};
+showSocialsButton?.addEventListener("click", toggleSocials);
 
 // #region CTA
 
