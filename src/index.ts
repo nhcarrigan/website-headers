@@ -5,10 +5,10 @@
  */
 
 // #region Version
-const version = "{{ version }}";
+const nhcarriganHeadersVersion = "{{ version }}";
 console.log(`
 ========================================
-Loading NHCarrigan library v${version}.
+Loading NHCarrigan library v${nhcarriganHeadersVersion}.
 Copyright (c) ${new Date().getFullYear().
   toString()} NHCarrigan
 Changelog: https://codeberg.org/nhcarrigan/website-headers/releases
@@ -19,12 +19,18 @@ Questions? Contact us at https://docs.nhcarrigan.com/about/contact
 // #endregion
 
 // #region Query Selectors
-const head = document.querySelector("head");
-const body = document.querySelector("body");
-const title = document.querySelector("title");
-const description = document.querySelector(`meta[name="description"]`);
+const nhcarriganHeadersHead = document.querySelector("head");
+const nhcarriganHeadersBody = document.querySelector("body");
+const nhcarriganHeadersTitle = document.querySelector("title");
+const nhcarriganHeadersDescription = document.querySelector(
+  `meta[name="description"]`,
+);
 
-const { href: url, hostname, pathname } = window.location;
+const {
+  href: nhcarriganHeadersUrl,
+  hostname: nhcarriganHeadersHostname,
+  pathname: nhcarriganHeadersPathname,
+} = window.location;
 
 // #endregion
 
@@ -34,79 +40,96 @@ const { href: url, hostname, pathname } = window.location;
  * The title and description are set by each website. This should
  * only load things like open graph data and favicons.
  */
-const openGraphTitle = document.createElement("meta");
-openGraphTitle.setAttribute("property", "og:title");
-openGraphTitle.setAttribute("content", title?.innerText ?? "NHCarrigan");
-const openGraphDescription = document.createElement("meta");
-openGraphDescription.setAttribute("property", "og:description");
-openGraphDescription.setAttribute(
+const nhcarriganHeadersOpenGraphTitle = document.createElement("meta");
+nhcarriganHeadersOpenGraphTitle.setAttribute("property", "og:title");
+nhcarriganHeadersOpenGraphTitle.setAttribute(
   "content",
-  description?.getAttribute("content")
-  // eslint-disable-next-line stylistic/max-len -- big boi string
-    ?? "We are a software engineering and community management consulting firm.",
+  nhcarriganHeadersTitle?.innerText ?? "NHCarrigan",
 );
-const openGraphImage = document.createElement("meta");
-openGraphImage.setAttribute("property", "og:image");
-openGraphImage.setAttribute(
+const nhcarriganHeadersOpenGraphDescription = document.createElement("meta");
+nhcarriganHeadersOpenGraphDescription.setAttribute(
+  "property",
+  "og:description",
+);
+nhcarriganHeadersOpenGraphDescription.setAttribute(
+  "content",
+  nhcarriganHeadersDescription?.getAttribute("content")
+  ?? "We are a software engineering and community management consulting firm.",
+);
+const nhcarriganHeadersOpenGraphImage = document.createElement("meta");
+nhcarriganHeadersOpenGraphImage.setAttribute("property", "og:image");
+nhcarriganHeadersOpenGraphImage.setAttribute(
   "content",
   "https://cdn.nhcarrigan.com/og-image.png",
 );
-const openGraphUrl = document.createElement("meta");
-openGraphUrl.setAttribute("property", "og:url");
-openGraphUrl.setAttribute("content", url);
-const openGraphType = document.createElement("meta");
-openGraphType.setAttribute("property", "og:type");
-openGraphType.setAttribute("content", "website");
+const nhcarriganHeadersOpenGraphUrl = document.createElement("meta");
+nhcarriganHeadersOpenGraphUrl.setAttribute("property", "og:url");
+nhcarriganHeadersOpenGraphUrl.setAttribute("content", nhcarriganHeadersUrl);
+const nhcarriganHeadersOpenGraphType = document.createElement("meta");
+nhcarriganHeadersOpenGraphType.setAttribute("property", "og:type");
+nhcarriganHeadersOpenGraphType.setAttribute("content", "website");
 
-const twitterCard = document.createElement("meta");
-twitterCard.setAttribute("name", "twitter:card");
-twitterCard.setAttribute("content", "summary_large_image");
-const twitterDomain = document.createElement("meta");
-twitterDomain.setAttribute("name", "twitter:domain");
-twitterDomain.setAttribute("content", hostname);
-const twitterUrl = document.createElement("meta");
-twitterUrl.setAttribute("name", "twitter:url");
-twitterUrl.setAttribute("content", url);
-const twitterTitle = document.createElement("meta");
-twitterTitle.setAttribute("name", "twitter:title");
-twitterTitle.setAttribute("content", title?.innerText ?? "NHCarrigan");
-const twitterDescription = document.createElement("meta");
-twitterDescription.setAttribute("name", "twitter:description");
-twitterDescription.setAttribute(
+const nhcarriganHeadersTwitterCard = document.createElement("meta");
+nhcarriganHeadersTwitterCard.setAttribute("name", "twitter:card");
+nhcarriganHeadersTwitterCard.setAttribute("content", "summary_large_image");
+const nhcarriganHeadersTwitterDomain = document.createElement("meta");
+nhcarriganHeadersTwitterDomain.setAttribute("name", "twitter:domain");
+nhcarriganHeadersTwitterDomain.setAttribute(
   "content",
-  description?.getAttribute("content")
-  // eslint-disable-next-line stylistic/max-len -- big boi string
-    ?? "We are a software engineering and community management consulting firm.",
+  nhcarriganHeadersHostname,
 );
-const twitterImage = document.createElement("meta");
-twitterImage.setAttribute("name", "twitter:image");
-twitterImage.setAttribute("content", "https://cdn.nhcarrigan.com/og-image.png");
+const nhcarriganHeadersTwitterUrl = document.createElement("meta");
+nhcarriganHeadersTwitterUrl.setAttribute("name", "twitter:url");
+nhcarriganHeadersTwitterUrl.setAttribute("content", nhcarriganHeadersUrl);
+const nhcarriganHeadersTwitterTitle = document.createElement("meta");
+nhcarriganHeadersTwitterTitle.setAttribute("name", "twitter:title");
+nhcarriganHeadersTwitterTitle.setAttribute(
+  "content",
+  nhcarriganHeadersTitle?.innerText ?? "NHCarrigan",
+);
+const nhcarriganHeadersTwitterDescription = document.createElement("meta");
+nhcarriganHeadersTwitterDescription.setAttribute("name", "twitter:description");
+nhcarriganHeadersTwitterDescription.setAttribute(
+  "content",
+  nhcarriganHeadersDescription?.getAttribute("content")
+  ?? "We are a software engineering and community management consulting firm.",
+);
+const nhcarriganHeadersTwitterImage = document.createElement("meta");
+nhcarriganHeadersTwitterImage.setAttribute("name", "twitter:image");
+nhcarriganHeadersTwitterImage.setAttribute(
+  "content",
+  "https://cdn.nhcarrigan.com/og-image.png",
+);
 
 // #endregion
 
 // #region Favicon
 
-const favicon = document.createElement("link");
-favicon.rel = "icon";
-favicon.type = "image/x-icon";
-favicon.href = "https://cdn.nhcarrigan.com/favicon/favicon.ico";
-const appleTouchIcon = document.createElement("link");
-appleTouchIcon.rel = "apple-touch-icon";
-appleTouchIcon.href = "https://cdn.nhcarrigan.com/favicon/apple-touch-icon.png";
-const smallIcon = document.createElement("link");
-smallIcon.rel = "icon";
-smallIcon.href = "https://cdn.nhcarrigan.com/favicon/favicon-16x16.png";
-const largeIcon = document.createElement("link");
-largeIcon.rel = "icon";
-largeIcon.href = "https://cdn.nhcarrigan.com/favicon/favicon-32x32.png";
+const nhcarriganHeadersFavicon = document.createElement("link");
+nhcarriganHeadersFavicon.rel = "icon";
+nhcarriganHeadersFavicon.type = "image/x-icon";
+nhcarriganHeadersFavicon.href
+  = "https://cdn.nhcarrigan.com/favicon/favicon.ico";
+const nhcarriganHeadersAppleTouchIcon = document.createElement("link");
+nhcarriganHeadersAppleTouchIcon.rel = "apple-touch-icon";
+nhcarriganHeadersAppleTouchIcon.href
+  = "https://cdn.nhcarrigan.com/favicon/apple-touch-icon.png";
+const nhcarriganHeadersSmallIcon = document.createElement("link");
+nhcarriganHeadersSmallIcon.rel = "icon";
+nhcarriganHeadersSmallIcon.href
+  = "https://cdn.nhcarrigan.com/favicon/favicon-16x16.png";
+const nhcarriganHeadersLargeIcon = document.createElement("link");
+nhcarriganHeadersLargeIcon.rel = "icon";
+nhcarriganHeadersLargeIcon.href
+  = "https://cdn.nhcarrigan.com/favicon/favicon-32x32.png";
 
 // #endregion
 
 // #region Styles
 
-const styles = document.createElement("style");
-styles.id = "nhcarrigan-global-styles";
-styles.innerHTML = `
+const nhcarriganHeadersStyles = document.createElement("style");
+nhcarriganHeadersStyles.id = "nhcarrigan-global-styles";
+nhcarriganHeadersStyles.innerHTML = `
 @font-face {
   font-family: 'OpenDyslexic';
   src: url('https://cdn.nhcarrigan.com/fonts/OpenDyslexicMono-Regular.otf') format('opentype');
@@ -249,8 +272,8 @@ a {
 
 // #region Components
 
-const footer = document.createElement("footer");
-footer.innerHTML = `
+const nhcarriganHeadersFooter = document.createElement("footer");
+nhcarriganHeadersFooter.innerHTML = `
 <div id="footer-inner-container">
 <p>&copy; <a href="https://nhcarrigan.com" target="_blank">Naomi Carrigan</a></p>
 <button id="show-socials-button" type="button">
@@ -322,13 +345,13 @@ footer.innerHTML = `
 `;
 // #region Scripts
 
-const treeNation = document.createElement("script");
-treeNation.src
+const nhcarriganHeadersTreeNation = document.createElement("script");
+nhcarriganHeadersTreeNation.src
   = "https://widgets.tree-nation.com/js/widgets/v1/widgets.min.js?v=1.0";
-const treeNationBottom = document.createElement("script");
-treeNationBottom.defer = true;
-treeNationBottom.async = true;
-treeNationBottom.innerHTML = `
+const nhcarriganHeadersTreeNationBottom = document.createElement("script");
+nhcarriganHeadersTreeNationBottom.defer = true;
+nhcarriganHeadersTreeNationBottom.async = true;
+nhcarriganHeadersTreeNationBottom.innerHTML = `
 const interval = setInterval(() => {
   const tree = document.querySelector("#tree-nation-offset-website");
   if (!tree) {
@@ -343,136 +366,164 @@ const interval = setInterval(() => {
   clearInterval(interval);
 }, 1000);
 `;
-const fontAwesome = document.createElement("script");
-fontAwesome.src = "https://kit.fontawesome.com/f949111719.js";
-const analytics = document.createElement("script");
-analytics.defer = true;
-analytics.setAttribute("domain", "nhcarrigan.com");
-analytics.src
+const nhcarriganHeadersFontAwesome = document.createElement("script");
+nhcarriganHeadersFontAwesome.src = "https://kit.fontawesome.com/f949111719.js";
+const nhcarriganHeadersAnalytics = document.createElement("script");
+nhcarriganHeadersAnalytics.defer = true;
+nhcarriganHeadersAnalytics.setAttribute("domain", "nhcarrigan.com");
+nhcarriganHeadersAnalytics.src
   // eslint-disable-next-line stylistic/max-len
   = "https://analytics.nhcarrigan.com/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js";
-analytics.setAttribute("event-domain", hostname);
-analytics.setAttribute("data-domain", "nhcarrigan.com");
-analytics.setAttribute("event-page", title?.innerText ?? "Unknown Page");
-analytics.setAttribute("event-path", pathname);
-const analytics2 = document.createElement("script");
-analytics2.innerHTML = `
+nhcarriganHeadersAnalytics.setAttribute(
+  "event-domain",
+  nhcarriganHeadersHostname,
+);
+nhcarriganHeadersAnalytics.setAttribute("data-domain", "nhcarrigan.com");
+nhcarriganHeadersAnalytics.setAttribute(
+  "event-page",
+  nhcarriganHeadersTitle?.innerText ?? "Unknown Page",
+);
+nhcarriganHeadersAnalytics.setAttribute(
+  "event-path",
+  nhcarriganHeadersPathname,
+);
+const nhcarriganHeadersAnalytics2 = document.createElement("script");
+nhcarriganHeadersAnalytics2.innerHTML = `
 window.plausible = window.plausible ??
 function() { 
   (window.plausible.q = window.plausible.q ?? []).push(arguments) 
 }
 `;
-const googleAdsense = document.createElement("script");
-googleAdsense.async = true;
-googleAdsense.src
+const nhcarriganHeadersGoogleAdsense = document.createElement("script");
+nhcarriganHeadersGoogleAdsense.async = true;
+nhcarriganHeadersGoogleAdsense.src
   // eslint-disable-next-line stylistic/max-len -- big boi string
   = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3569924701890974";
-googleAdsense.setAttribute("crossorigin", "anonymous");
+nhcarriganHeadersGoogleAdsense.setAttribute("crossorigin", "anonymous");
 
 // #endregion
 
 // #region Inject Elements
 
-head?.appendChild(openGraphTitle);
-head?.appendChild(openGraphDescription);
-head?.appendChild(openGraphImage);
-head?.appendChild(openGraphUrl);
-head?.appendChild(openGraphType);
-head?.appendChild(twitterCard);
-head?.appendChild(twitterDomain);
-head?.appendChild(twitterUrl);
-head?.appendChild(twitterTitle);
-head?.appendChild(twitterDescription);
-head?.appendChild(twitterImage);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphTitle);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphDescription);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphImage);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphUrl);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphType);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterCard);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterDomain);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterUrl);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterTitle);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterDescription);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterImage);
 
-head?.appendChild(favicon);
-head?.appendChild(appleTouchIcon);
-head?.appendChild(smallIcon);
-head?.appendChild(largeIcon);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersFavicon);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersAppleTouchIcon);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersSmallIcon);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersLargeIcon);
 
-head?.appendChild(styles);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersStyles);
 
-head?.appendChild(treeNation);
-head?.appendChild(fontAwesome);
-head?.appendChild(analytics);
-head?.appendChild(analytics2);
-head?.appendChild(googleAdsense);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTreeNation);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersFontAwesome);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersAnalytics);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersAnalytics2);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersGoogleAdsense);
 
-body?.appendChild(footer);
-body?.appendChild(treeNationBottom);
+nhcarriganHeadersBody?.appendChild(nhcarriganHeadersFooter);
+nhcarriganHeadersBody?.appendChild(nhcarriganHeadersTreeNationBottom);
 // #endregion
 
 // #region Theme
 
-const themeButton = document.querySelector("#theme-select-button");
-const themeIcon = document.querySelector("#theme-select-icon");
+const nhcarriganHeadersThemeButton = document.querySelector(
+  "#theme-select-button",
+);
+const nhcarriganHeadersThemeIcon = document.querySelector("#theme-select-icon");
 if (localStorage.getItem("theme") === "dark") {
-  themeIcon?.classList.remove("fa-moon");
-  themeIcon?.classList.add("fa-sun");
+  nhcarriganHeadersThemeIcon?.classList.remove("fa-moon");
+  nhcarriganHeadersThemeIcon?.classList.add("fa-sun");
   document.querySelector("html")?.classList.add("is-dark");
 }
-const toggleTheme = (): void => {
-  const currentTheme = localStorage.getItem("theme");
-  if (currentTheme === "dark") {
+const nhcarriganHeadersToggleTheme = (): void => {
+  const nhcarriganHeadersCurrentTheme = localStorage.getItem("theme");
+  if (nhcarriganHeadersCurrentTheme === "dark") {
     localStorage.setItem("theme", "light");
-    themeIcon?.classList.remove("fa-sun");
-    themeIcon?.classList.add("fa-moon");
+    nhcarriganHeadersThemeIcon?.classList.remove("fa-sun");
+    nhcarriganHeadersThemeIcon?.classList.add("fa-moon");
     document.querySelector("html")?.classList.remove("is-dark");
     return;
   }
   localStorage.setItem("theme", "dark");
-  themeIcon?.classList.remove("fa-moon");
-  themeIcon?.classList.add("fa-sun");
+  nhcarriganHeadersThemeIcon?.classList.remove("fa-moon");
+  nhcarriganHeadersThemeIcon?.classList.add("fa-sun");
   document.querySelector("html")?.classList.add("is-dark");
 };
-themeButton?.addEventListener("click", toggleTheme);
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-if (prefersDark.matches && localStorage.getItem("theme") !== null) {
+nhcarriganHeadersThemeButton?.addEventListener(
+  "click",
+  nhcarriganHeadersToggleTheme,
+);
+const nhcarriganHeadersPrefersDark = window.matchMedia(
+  "(prefers-color-scheme: dark)",
+);
+if (
+  nhcarriganHeadersPrefersDark.matches
+  && localStorage.getItem("theme") !== null
+) {
   localStorage.setItem("theme", "dark");
-  themeIcon?.classList.remove("fa-moon");
-  themeIcon?.classList.add("fa-sun");
+  nhcarriganHeadersThemeIcon?.classList.remove("fa-moon");
+  nhcarriganHeadersThemeIcon?.classList.add("fa-sun");
   document.querySelector("html")?.classList.add("is-dark");
 }
 
 // #endregion
 
 // #region Social Toggle
-const showSocialsButton = document.querySelector<HTMLButtonElement>(
-  "#show-socials-button",
-);
-const socialList = document.querySelector<HTMLDivElement>("#social-list");
-const toggleSocials = (): void => {
-  if (!socialList) {
+const nhcarriganHeadersShowSocialsButton
+  = document.querySelector<HTMLButtonElement>("#show-socials-button");
+const nhcarriganHeadersSocialList
+  = document.querySelector<HTMLDivElement>("#social-list");
+const nhcarriganHeadersToggleSocials = (): void => {
+  if (!nhcarriganHeadersSocialList) {
     throw new Error("Social list element not found.");
   }
-  if (socialList.style.display === "block") {
-    socialList.style.display = "none";
-    showSocialsButton?.setAttribute("aria-expanded", "false");
-    showSocialsButton?.setAttribute("aria-label", "Show Socials");
+  if (nhcarriganHeadersSocialList.style.display === "block") {
+    nhcarriganHeadersSocialList.style.display = "none";
+    nhcarriganHeadersShowSocialsButton?.setAttribute("aria-expanded", "false");
+    nhcarriganHeadersShowSocialsButton?.setAttribute(
+      "aria-label",
+      "Show Socials",
+    );
     return;
   }
-  socialList.style.display = "block";
-  showSocialsButton?.setAttribute("aria-expanded", "true");
-  showSocialsButton?.setAttribute("aria-label", "Hide Socials");
+  nhcarriganHeadersSocialList.style.display = "block";
+  nhcarriganHeadersShowSocialsButton?.setAttribute("aria-expanded", "true");
+  nhcarriganHeadersShowSocialsButton?.setAttribute(
+    "aria-label",
+    "Hide Socials",
+  );
 };
-showSocialsButton?.addEventListener("click", toggleSocials);
+nhcarriganHeadersShowSocialsButton?.addEventListener(
+  "click",
+  nhcarriganHeadersToggleSocials,
+);
 
 // #region CTA
 
-const cta = document.createElement("dialog");
-cta.style.position = "fixed";
-cta.style.top = "50%";
-cta.style.left = "50%";
-cta.style.transform = "translate(-50%, -50%)";
-cta.style.padding = "10px";
-cta.style.borderRadius = "10px";
-cta.style.backgroundColor = "var(--background)";
-cta.style.color = "var(--foreground)";
-cta.style.textAlign = "center";
-cta.style.width = "95%";
-cta.style.maxWidth = "400px";
-cta.id = "community-cta";
-cta.innerHTML = `
+const nhcarriganHeadersCta = document.createElement("dialog");
+nhcarriganHeadersCta.style.position = "fixed";
+nhcarriganHeadersCta.style.top = "50%";
+nhcarriganHeadersCta.style.left = "50%";
+nhcarriganHeadersCta.style.transform = "translate(-50%, -50%)";
+nhcarriganHeadersCta.style.padding = "10px";
+nhcarriganHeadersCta.style.borderRadius = "10px";
+nhcarriganHeadersCta.style.backgroundColor = "var(--background)";
+nhcarriganHeadersCta.style.color = "var(--foreground)";
+nhcarriganHeadersCta.style.textAlign = "center";
+nhcarriganHeadersCta.style.width = "95%";
+nhcarriganHeadersCta.style.maxWidth = "400px";
+nhcarriganHeadersCta.id = "community-cta";
+nhcarriganHeadersCta.innerHTML = `
   <h1 autofocus>Hello~!</h1>
   <div style="display: flex; justify-content: space-around; margin-bottom: 10px;">
     <img src="https://cdn.nhcarrigan.com/logo.png" alt="NHCarrigan Logo" style="width: 100px; height: 100px;">
@@ -483,47 +534,62 @@ cta.innerHTML = `
   <a href="https://chat.nhcarrigan.com" target="_blank" rel="noreferrer" style="padding: 10px; background: var(--foreground); color: var(--background); outline: none">Okay, take me there~!</a>
 `;
 
-const modalBg = document.createElement("div");
-modalBg.style.zIndex = "4999";
-modalBg.style.position = "fixed";
-modalBg.style.top = "0";
-modalBg.style.left = "0";
-modalBg.style.width = "100vw";
-modalBg.style.height = "100vh";
-modalBg.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-modalBg.style.display = "none";
-modalBg.id = "modal-bg";
-const closeModal = (): void => {
-  cta.close();
-  modalBg.style.display = "none";
+const nhcarriganHeadersModalBg = document.createElement("div");
+nhcarriganHeadersModalBg.style.zIndex = "4999";
+nhcarriganHeadersModalBg.style.position = "fixed";
+nhcarriganHeadersModalBg.style.top = "0";
+nhcarriganHeadersModalBg.style.left = "0";
+nhcarriganHeadersModalBg.style.width = "100vw";
+nhcarriganHeadersModalBg.style.height = "100vh";
+nhcarriganHeadersModalBg.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+nhcarriganHeadersModalBg.style.display = "none";
+nhcarriganHeadersModalBg.id = "modal-bg";
+const nhcarriganHeadersCloseModal = (): void => {
+  nhcarriganHeadersCta.close();
+  nhcarriganHeadersModalBg.style.display = "none";
 };
-const handleModalClick = (event: MouseEvent): void => {
+const nhcarriganHeadersHandleModalClick = (event: MouseEvent): void => {
   event.stopPropagation();
-  if (event.target === cta) {
-    closeModal();
+  if (event.target === nhcarriganHeadersCta) {
+    nhcarriganHeadersCloseModal();
   }
 };
-const showModal = (): void => {
-  const lastShown = Number.parseInt(
+const nhcarriganHeadersShowModal = (): void => {
+  const nhcarriganHeadersLastShown = Number.parseInt(
     localStorage.getItem("naomi-community-cta") ?? "0",
     10,
   );
-  const lastShownDate = new Date(lastShown);
-  const diff = Date.now() - lastShownDate.getTime();
-  console.table({ diff, lastShown, lastShownDate });
+  const nhcarriganHeadersLastShownDate = new Date(nhcarriganHeadersLastShown);
+  const nhcarriganHeadersDiff
+    = Date.now() - nhcarriganHeadersLastShownDate.getTime();
+  console.table({
+    diff:          nhcarriganHeadersDiff,
+    lastShown:     nhcarriganHeadersLastShown,
+    lastShownDate: nhcarriganHeadersLastShownDate,
+  });
   // We only want to show this once a week.
-  if (diff < 1000 * 60 * 60 * 24 * 7) {
+  if (nhcarriganHeadersDiff < 1000 * 60 * 60 * 24 * 7) {
     return;
   }
-  cta.showModal();
-  modalBg.style.display = "block";
-  modalBg.addEventListener("click", closeModal);
-  const closeButton = cta.querySelector("button");
-  closeButton?.addEventListener("click", closeModal);
-  cta.addEventListener("click", handleModalClick);
+  nhcarriganHeadersCta.showModal();
+  nhcarriganHeadersModalBg.style.display = "block";
+  nhcarriganHeadersModalBg.addEventListener(
+    "click",
+    nhcarriganHeadersCloseModal,
+  );
+  const nhcarriganHeadersCloseButton
+    = nhcarriganHeadersCta.querySelector("button");
+  nhcarriganHeadersCloseButton?.addEventListener(
+    "click",
+    nhcarriganHeadersCloseModal,
+  );
+  nhcarriganHeadersCta.addEventListener(
+    "click",
+    nhcarriganHeadersHandleModalClick,
+  );
   localStorage.setItem("naomi-community-cta", Date.now().toString());
 };
 
-body?.appendChild(cta);
-body?.appendChild(modalBg);
-showModal();
+nhcarriganHeadersBody?.appendChild(nhcarriganHeadersCta);
+nhcarriganHeadersBody?.appendChild(nhcarriganHeadersModalBg);
+nhcarriganHeadersShowModal();

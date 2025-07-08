@@ -8,5 +8,10 @@
   "sonarlint.connectedMode.project": {
     "connectionId": "nhcarrigan",
     "projectKey": "nhcarrigan_website-headers"
-  }
+  },
+  "cSpell.words": [
+    "Adsense",
+    "nhcarrigan",
+    "noreferrer"
+  ]
 }
