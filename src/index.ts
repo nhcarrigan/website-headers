@@ -11,7 +11,7 @@ console.log(`
 Loading NHCarrigan library v${nhcarriganHeadersVersion}.
 Copyright (c) ${new Date().getFullYear().
   toString()} NHCarrigan
-Changelog: https://codeberg.org/nhcarrigan/website-headers/releases
+Changelog: https://git.nhcarrigan.com/nhcarrigan/website-headers/releases
 Licensed under our public license: https://docs.nhcarrigan.com/legal/license
 Questions? Contact us at https://docs.nhcarrigan.com/about/contact
 ========================================
@@ -136,8 +136,8 @@ nhcarriganHeadersStyles.innerHTML = `
 }
 
 :root {
-  --foreground: #2a0a18;
-  --background: #ffb6c1bb;
+  --foreground: #8F2447;
+  --background: #E1F6F9DC;
 }
 
 * {
@@ -251,8 +251,8 @@ a {
   color: var(--background);
 }
 .is-dark {
-  --foreground: #ffb6c1;
-  --background: #2a0a18bb;
+  --foreground: #E1F6F9;
+  --background: #8F2447bb;
 }
 @media screen and (max-width: 625px) {
   #tree-nation-offset-website {
