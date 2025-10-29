@@ -131,13 +131,14 @@ const nhcarriganHeadersStyles = document.createElement("style");
 nhcarriganHeadersStyles.id = "nhcarrigan-global-styles";
 nhcarriganHeadersStyles.innerHTML = `
 @font-face {
-  font-family: 'OpenDyslexic';
-  src: url('https://cdn.nhcarrigan.com/fonts/OpenDyslexicMono-Regular.otf') format('opentype');
+  font-family: 'Vampyr';
+  src: url('https://cdn.nhcarrigan.com/fonts/vampyr.ttf') format('truetype');
 }
 
 :root {
   --foreground: #8F2447;
   --background: #E1F6F9DC;
+  font-size: 16pt;
 }
 
 * {
@@ -147,7 +148,7 @@ nhcarriganHeadersStyles.innerHTML = `
 }
 
 html {
-  font-family: 'OpenDyslexic', monospace;
+  font-family: 'Vampyr', monospace;
   cursor: url('https://cdn.nhcarrigan.com/cursors/cursor.cur'), auto;
   min-height: 100vh;
   min-width: 100vw;
@@ -206,7 +207,7 @@ footer {
   cursor: url('https://cdn.nhcarrigan.com/cursors/pointer.cur'), pointer;
   color: var(--foreground);
   font-size: 1rem;
-  font-family: 'OpenDyslexic', monospace;
+  font-family: 'Vampyr', monospace;
 }
 #show-socials-button > i, #theme-select-button > i {
   font-size: 1.5rem;
