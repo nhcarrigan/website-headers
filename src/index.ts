@@ -40,6 +40,23 @@ const {
  * The title and description are set by each website. This should
  * only load things like open graph data and favicons.
  */
+const nhcarriganHeadersCharacterSet = document.createElement("meta");
+nhcarriganHeadersCharacterSet.setAttribute("charset", "UTF-8");
+const nhcarriganHeadersViewport = document.createElement("meta");
+nhcarriganHeadersViewport.setAttribute("name", "viewport");
+nhcarriganHeadersViewport.setAttribute(
+  "content",
+  "width=device-width, initial-scale=1.0",
+);
+const nhcarriganHeadersThemeColor = document.createElement("meta");
+nhcarriganHeadersThemeColor.setAttribute("name", "theme-color");
+nhcarriganHeadersThemeColor.setAttribute("content", "#E1F6F9");
+const nhcarriganHeadersReferrer = document.createElement("meta");
+nhcarriganHeadersReferrer.setAttribute("name", "referrer");
+nhcarriganHeadersReferrer.setAttribute(
+  "content",
+  "strict-origin-when-cross-origin",
+);
 const nhcarriganHeadersOpenGraphTitle = document.createElement("meta");
 nhcarriganHeadersOpenGraphTitle.setAttribute("property", "og:title");
 nhcarriganHeadersOpenGraphTitle.setAttribute(
@@ -68,6 +85,23 @@ nhcarriganHeadersOpenGraphUrl.setAttribute("content", nhcarriganHeadersUrl);
 const nhcarriganHeadersOpenGraphType = document.createElement("meta");
 nhcarriganHeadersOpenGraphType.setAttribute("property", "og:type");
 nhcarriganHeadersOpenGraphType.setAttribute("content", "website");
+const nhcarriganHeadersOpenGraphSiteName = document.createElement("meta");
+nhcarriganHeadersOpenGraphSiteName.setAttribute("property", "og:site_name");
+nhcarriganHeadersOpenGraphSiteName.setAttribute("content", "NHCarrigan");
+const nhcarriganHeadersOpenGraphLocale = document.createElement("meta");
+nhcarriganHeadersOpenGraphLocale.setAttribute("property", "og:locale");
+nhcarriganHeadersOpenGraphLocale.setAttribute("content", "en_US");
+const nhcarriganHeadersOpenGraphImageAlt = document.createElement("meta");
+nhcarriganHeadersOpenGraphImageAlt.setAttribute("property", "og:image:alt");
+nhcarriganHeadersOpenGraphImageAlt.
+  setAttribute("content", "NHCarrigan logo and branding");
+const nhcarriganHeadersOpenGraphImageWidth = document.createElement("meta");
+nhcarriganHeadersOpenGraphImageWidth.setAttribute("property", "og:image:width");
+nhcarriganHeadersOpenGraphImageWidth.setAttribute("content", "1920");
+const nhcarriganHeadersOpenGraphImageHeight = document.createElement("meta");
+nhcarriganHeadersOpenGraphImageHeight.
+  setAttribute("property", "og:image:height");
+nhcarriganHeadersOpenGraphImageHeight.setAttribute("content", "1080");
 
 const nhcarriganHeadersTwitterCard = document.createElement("meta");
 nhcarriganHeadersTwitterCard.setAttribute("name", "twitter:card");
@@ -100,6 +134,22 @@ nhcarriganHeadersTwitterImage.setAttribute(
   "content",
   "https://cdn.nhcarrigan.com/og-image.png",
 );
+const nhcarriganHeadersTwitterSite = document.createElement("meta");
+nhcarriganHeadersTwitterSite.setAttribute("name", "twitter:site");
+nhcarriganHeadersTwitterSite.setAttribute("content", "@nhcarrigan1");
+const nhcarriganHeadersTwitterCreator = document.createElement("meta");
+nhcarriganHeadersTwitterCreator.setAttribute("name", "twitter:creator");
+nhcarriganHeadersTwitterCreator.setAttribute("content", "@nhcarrigan1");
+
+const nhcarriganHeadersFormatDetection = document.createElement("meta");
+nhcarriganHeadersFormatDetection.setAttribute("name", "format-detection");
+nhcarriganHeadersFormatDetection.setAttribute("content", "telephone=no");
+const nhcarriganHeadersRobots = document.createElement("meta");
+nhcarriganHeadersRobots.setAttribute("name", "robots");
+nhcarriganHeadersRobots.setAttribute("content", "index, follow");
+const nhcarriganHeadersAuthor = document.createElement("meta");
+nhcarriganHeadersAuthor.setAttribute("name", "author");
+nhcarriganHeadersAuthor.setAttribute("content", "Naomi Carrigan");
 
 // #endregion
 
@@ -406,23 +456,35 @@ nhcarriganHeadersGoogleAdsense.setAttribute("crossorigin", "anonymous");
 
 // #region Inject Elements
 
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersCharacterSet);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersViewport);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersThemeColor);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersReferrer);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphTitle);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphDescription);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphImage);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphUrl);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphType);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphSiteName);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphLocale);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphImageAlt);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphImageWidth);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersOpenGraphImageHeight);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterCard);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterDomain);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterUrl);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterTitle);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterDescription);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterImage);
-
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterSite);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTwitterCreator);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersFavicon);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersAppleTouchIcon);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersSmallIcon);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersLargeIcon);
-
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersFormatDetection);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersRobots);
+nhcarriganHeadersHead?.appendChild(nhcarriganHeadersAuthor);
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersStyles);
 
 nhcarriganHeadersHead?.appendChild(nhcarriganHeadersTreeNation);
