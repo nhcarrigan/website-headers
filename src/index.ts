@@ -188,7 +188,7 @@ nhcarriganHeadersStyles.innerHTML = `
 :root {
   --foreground: #8F2447;
   --background: #E1F6F9DC;
-  font-size: 16pt;
+  font-size: 20pt;
 }
 
 * {
