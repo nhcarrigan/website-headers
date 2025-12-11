@@ -433,29 +433,17 @@ const nhcarriganHeadersFontAwesome = document.createElement("script");
 nhcarriganHeadersFontAwesome.src = "https://kit.fontawesome.com/f949111719.js";
 const nhcarriganHeadersAnalytics = document.createElement("script");
 nhcarriganHeadersAnalytics.defer = true;
-nhcarriganHeadersAnalytics.setAttribute("domain", "nhcarrigan.com");
 nhcarriganHeadersAnalytics.src
-  // eslint-disable-next-line stylistic/max-len
-  = "https://analytics.nhcarrigan.com/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js";
-nhcarriganHeadersAnalytics.setAttribute(
-  "event-domain",
-  nhcarriganHeadersHostname,
-);
-nhcarriganHeadersAnalytics.setAttribute("data-domain", "nhcarrigan.com");
-nhcarriganHeadersAnalytics.setAttribute(
-  "event-page",
-  nhcarriganHeadersTitle?.innerText ?? "Unknown Page",
-);
-nhcarriganHeadersAnalytics.setAttribute(
-  "event-path",
-  nhcarriganHeadersPathname,
-);
+
+  = "https://analytics.nhcarrigan.com/js/pa-YUXAn1vhhRttySUAw_LMN.js";
 const nhcarriganHeadersAnalytics2 = document.createElement("script");
 nhcarriganHeadersAnalytics2.innerHTML = `
-window.plausible = window.plausible ??
-function() { 
-  (window.plausible.q = window.plausible.q ?? []).push(arguments) 
-}
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init({
+    domain: "${nhcarriganHeadersHostname}",
+    page: "${nhcarriganHeadersTitle?.innerText ?? "Unknown Page"}",
+    path: "${nhcarriganHeadersPathname}",
+  })
 `;
 const nhcarriganHeadersGoogleAdsense = document.createElement("script");
 nhcarriganHeadersGoogleAdsense.async = true;
