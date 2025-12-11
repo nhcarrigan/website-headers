@@ -188,7 +188,7 @@ nhcarriganHeadersStyles.innerHTML = `
 :root {
   --foreground: #8F2447;
   --background: #E1F6F9DC;
-  font-size: 20pt;
+  font-size: 12pt;
 }
 
 * {
@@ -317,6 +317,18 @@ a {
     margin-bottom: 60px;
   }
 }
+
+@media screen and (max-width: 425px) {
+  #donate-badge {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  footer, #show-socials-button, #theme-select-button, #show-socials-button > i, #theme-select-button > i {
+    font-size: 10pt;
+  }
+}
 `;
 
 // #endregion
@@ -326,14 +338,14 @@ a {
 const nhcarriganHeadersFooter = document.createElement("footer");
 nhcarriganHeadersFooter.innerHTML = `
 <div id="footer-inner-container">
-<p>&copy; <a href="https://nhcarrigan.com" target="_blank">Naomi Carrigan</a></p>
+<p id="footer-copyright">&copy; <a href="https://nhcarrigan.com" target="_blank">Naomi Carrigan</a></p>
 <button id="show-socials-button" type="button">
   <i class="fa-solid fa-share-nodes"></i> Connect with Us
 </button>
 <button id="theme-select-button" type="button">
   <i id="theme-select-icon" class="fa-solid fa-moon"></i> Toggle Theme
 </button>
-<a href="https://buy.stripe.com/cN24iTfqu1j6b3afZ2" target="_blank" rel="noreferrer">
+<a id="donate-badge" href="https://buy.stripe.com/cN24iTfqu1j6b3afZ2" target="_blank" rel="noreferrer">
   <img src="https://cdn.nhcarrigan.com/donate.png" alt="Donate" style="width: 70px; height: 70px;">
 </a>
 <div id="tree-nation-offset-website"></div>
