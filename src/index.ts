@@ -440,9 +440,11 @@ const nhcarriganHeadersAnalytics2 = document.createElement("script");
 nhcarriganHeadersAnalytics2.innerHTML = `
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
   plausible.init({
-    domain: "${nhcarriganHeadersHostname}",
-    page: "${nhcarriganHeadersTitle?.innerText ?? "Unknown Page"}",
-    path: "${nhcarriganHeadersPathname}",
+    customProperties: {
+      domain: "${nhcarriganHeadersHostname}",
+      page: "${nhcarriganHeadersTitle?.innerText ?? "Unknown Page"}",
+      path: "${nhcarriganHeadersPathname}",
+    },
   })
 `;
 const nhcarriganHeadersGoogleAdsense = document.createElement("script");
