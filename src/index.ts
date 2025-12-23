@@ -657,4 +657,10 @@ const nhcarriganHeadersShowModal = (): void => {
 
 nhcarriganHeadersBody?.appendChild(nhcarriganHeadersCta);
 nhcarriganHeadersBody?.appendChild(nhcarriganHeadersModalBg);
-nhcarriganHeadersShowModal();
+
+const nhcarriganNoModalUrls = [
+  "https://forms.nhcarrigan.com/o/docs/forms/7LNb8jFoN4SPBvP7vRxDi2/4",
+];
+if (!nhcarriganNoModalUrls.includes(nhcarriganHeadersUrl)) {
+  nhcarriganHeadersShowModal();
+}
