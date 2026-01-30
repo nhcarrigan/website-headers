@@ -50,7 +50,7 @@ nhcarriganHeadersViewport.setAttribute(
 );
 const nhcarriganHeadersThemeColor = document.createElement("meta");
 nhcarriganHeadersThemeColor.setAttribute("name", "theme-color");
-nhcarriganHeadersThemeColor.setAttribute("content", "#E1F6F9");
+nhcarriganHeadersThemeColor.setAttribute("content", "#4A0E0E");
 const nhcarriganHeadersReferrer = document.createElement("meta");
 nhcarriganHeadersReferrer.setAttribute("name", "referrer");
 nhcarriganHeadersReferrer.setAttribute(
@@ -185,10 +185,30 @@ nhcarriganHeadersStyles.innerHTML = `
   src: url('https://cdn.nhcarrigan.com/fonts/vampyr.ttf') format('truetype');
 }
 
+/* Import fun and whimsical fonts! */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Creepster&family=Griffy&family=Henny+Penny&display=swap');
+
 :root {
-  --foreground: #8F2447;
-  --background: #E1F6F9DC;
-  font-size: 12pt;
+  /* Witchy Purple Rose Palette */
+  --witch-purple: #2B1B3D;
+  --witch-plum: #44275A;
+  --witch-rose: #A8577E;
+  --witch-mauve: #D4A5C7;
+  --witch-lavender: #E8D5E8;
+  --witch-black: #0A0009;
+  --witch-silver: #C0C0C0;
+  --witch-moon: #F5F5F5;
+  --witch-shadow: rgba(10, 0, 9, 0.7);
+
+  /* Theme variables */
+  --foreground: var(--witch-purple);
+  --background: var(--witch-moon);
+  --accent: var(--witch-rose);
+  --border: var(--witch-plum);
+  --highlight: var(--witch-mauve);
+
+  font-size: 14pt;
+  line-height: 1.6;
 }
 
 * {
@@ -198,113 +218,491 @@ nhcarriganHeadersStyles.innerHTML = `
 }
 
 html {
-  font-family: 'Vampyr', monospace;
-  cursor: url('https://cdn.nhcarrigan.com/cursors/cursor.cur'), auto;
+  font-family: 'Kalam', cursive, sans-serif;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><g transform="translate(12 12) rotate(-45 12 12)"><circle cx="12" cy="6" r="5" fill="%232B1B3D"/><circle cx="6" cy="12" r="5" fill="%232B1B3D"/><circle cx="18" cy="12" r="5" fill="%232B1B3D"/><circle cx="12" cy="18" r="5" fill="%232B1B3D"/><circle cx="12" cy="12" r="3.5" fill="%23A8577E"/><path d="M12 18 L12 36" stroke="%232B1B3D" stroke-width="2.5"/><path d="M10 34 L8 38" stroke="%232B1B3D" stroke-width="2"/><path d="M14 34 L16 38" stroke="%232B1B3D" stroke-width="2"/></g><circle cx="3" cy="3" r="1.5" fill="%23D4A5C7" opacity="0.8"/></svg>') 0 0, url('https://cdn.nhcarrigan.com/cursors/cursor.cur'), auto;
   min-height: 100vh;
   min-width: 100vw;
 }
+
+body {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Witchy mystical background */
 body::before {
-  background: url(https://cdn.nhcarrigan.com/background.png);
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
   content: "";
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 1;
+  background: url(https://cdn.nhcarrigan.com/background.png);
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
   pointer-events: none;
 }
+
+/* Purple overlay for witchy effect */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(168, 87, 126, 0.35) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(68, 39, 90, 0.35) 0%, transparent 60%),
+    linear-gradient(180deg,
+      rgba(10, 0, 9, 0.5) 0%,
+      rgba(43, 27, 61, 0.25) 50%,
+      rgba(43, 27, 61, 0.4) 100%
+    );
+  z-index: -1;
+  pointer-events: none;
+}
+
 main {
   color: var(--foreground);
-  background-color: var(--background);
+  background: linear-gradient(135deg,
+    rgba(245, 245, 245, 0.95) 0%,
+    rgba(232, 213, 232, 0.9) 100%
+  );
   text-align: center;
-  border-radius: 10px;
+  border-radius: 15px;
   width: 95%;
   max-width: 1080px;
-  margin: auto;
-  margin-bottom: 85px;
-  padding: 10px;
+  margin: 20px auto 85px auto;
+  padding: 40px;
+  position: relative;
+
+  /* Simple elegant border */
+  border: 2px solid var(--witch-plum);
+  box-shadow:
+    /* Magical purple glow */
+    0 0 60px rgba(168, 87, 126, 0.4),
+    0 0 100px rgba(68, 39, 90, 0.3),
+    /* Standard shadow */
+    0 10px 40px var(--witch-shadow),
+    /* Inner glow */
+    inset 0 0 60px rgba(168, 87, 126, 0.05);
 }
+
 footer {
   width: 100%;
-  color: var(--foreground);
-  background-color: var(--background);
+  color: var(--witch-lavender);
+  background: linear-gradient(to bottom,
+    rgba(43, 27, 61, 0.95) 0%,
+    var(--witch-black) 100%
+  );
   position: fixed;
   bottom: 0;
   height: 75px;
   padding: 0 10px;
+  border-top: 2px solid var(--witch-mauve);
+  box-shadow:
+    /* Purple glow from top border */
+    0 -10px 40px rgba(212, 165, 199, 0.3),
+    0 -5px 20px rgba(168, 87, 126, 0.4),
+    /* Standard shadow */
+    0 -5px 20px var(--witch-shadow);
 }
+
 #footer-inner-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 75px;
 }
+
+#footer-inner-container a {
+  color: var(--witch-lavender);
+  transition: all 0.3s ease;
+}
+
+#footer-inner-container a:hover {
+  color: var(--witch-mauve);
+  text-shadow: 0 0 10px rgba(212, 165, 199, 0.5);
+}
+
 #footer-badge-container {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   align-items: center;
   justify-content: space-around;
 }
+
 #show-socials-button, #theme-select-button {
   background: none;
-  border: none;
-  cursor: url('https://cdn.nhcarrigan.com/cursors/pointer.cur'), pointer;
-  color: var(--foreground);
+  border: 1px solid var(--witch-plum);
+  border-radius: 20px;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g transform="translate(12 12) rotate(-45 12 12)" filter="url(%23glow)"><circle cx="12" cy="6" r="5.5" fill="%23A8577E"/><circle cx="6" cy="12" r="5.5" fill="%23A8577E"/><circle cx="18" cy="12" r="5.5" fill="%23A8577E"/><circle cx="12" cy="18" r="5.5" fill="%23A8577E"/><circle cx="12" cy="12" r="4" fill="%23D4A5C7"/><path d="M12 18 L12 36" stroke="%232B1B3D" stroke-width="2.5"/><path d="M10 34 L8 38" stroke="%232B1B3D" stroke-width="2"/><path d="M14 34 L16 38" stroke="%232B1B3D" stroke-width="2"/></g><circle cx="3" cy="3" r="2" fill="%23D4A5C7" opacity="0.9"/></svg>') 0 0, url('https://cdn.nhcarrigan.com/cursors/pointer.cur'), pointer;
+  color: var(--witch-lavender);
   font-size: 1rem;
-  font-family: 'Vampyr', monospace;
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+  padding: 8px 15px;
+  transition: all 0.3s ease;
 }
+
+#show-socials-button:hover, #theme-select-button:hover {
+  background: rgba(168, 87, 126, 0.2);
+  border-color: var(--witch-mauve);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(168, 87, 126, 0.3);
+}
+
 #show-socials-button > i, #theme-select-button > i {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  margin-right: 5px;
 }
+
 a {
-  color: unset;
-  cursor: url('https://cdn.nhcarrigan.com/cursors/pointer.cur'), pointer;
+  color: var(--accent);
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g transform="translate(12 12) rotate(-45 12 12)" filter="url(%23glow)"><circle cx="12" cy="6" r="5.5" fill="%23A8577E"/><circle cx="6" cy="12" r="5.5" fill="%23A8577E"/><circle cx="18" cy="12" r="5.5" fill="%23A8577E"/><circle cx="12" cy="18" r="5.5" fill="%23A8577E"/><circle cx="12" cy="12" r="4" fill="%23D4A5C7"/><path d="M12 18 L12 36" stroke="%232B1B3D" stroke-width="2.5"/><path d="M10 34 L8 38" stroke="%232B1B3D" stroke-width="2"/><path d="M14 34 L16 38" stroke="%232B1B3D" stroke-width="2"/></g><circle cx="3" cy="3" r="2" fill="%23D4A5C7" opacity="0.9"/></svg>') 0 0, url('https://cdn.nhcarrigan.com/cursors/pointer.cur'), pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
+
+a:hover {
+  color: var(--witch-plum);
+  text-decoration: underline;
+  text-decoration-color: var(--witch-mauve);
+  text-underline-offset: 3px;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><defs><filter id="sparkle"><feGaussianBlur stdDeviation="4" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g transform="translate(12 12) rotate(-45 12 12)" filter="url(%23sparkle)"><circle cx="12" cy="6" r="6" fill="%23A8577E"/><circle cx="6" cy="12" r="6" fill="%23A8577E"/><circle cx="18" cy="12" r="6" fill="%23A8577E"/><circle cx="12" cy="18" r="6" fill="%23A8577E"/><circle cx="12" cy="12" r="4.5" fill="%23D4A5C7"/><path d="M12 18 L12 36" stroke="%232B1B3D" stroke-width="3"/><path d="M10 34 L8 38" stroke="%232B1B3D" stroke-width="2.5"/><path d="M14 34 L16 38" stroke="%232B1B3D" stroke-width="2.5"/></g><circle cx="3" cy="3" r="2.5" fill="%23E8D5E8"/><circle cx="8" cy="1" r="1" fill="%23D4A5C7"/><circle cx="1" cy="8" r="1" fill="%23D4A5C7"/></svg>') 0 0, pointer;
+}
+
 #tree-nation-offset-website {
   display: flex;
   align-items: center;
 }
+
 #social-list {
   position: absolute;
   bottom: 75px;
-  left: 0;
-  right: 0;
-  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
   max-width: 400px;
-  padding: 10px;
-  background-color: var(--background);
-  color: var(--foreground);
-  border-radius: 10px;
-  border: 1px solid var(--foreground);
+  padding: 20px;
+  background: linear-gradient(135deg,
+    rgba(43, 27, 61, 0.98) 0%,
+    rgba(10, 0, 9, 0.95) 100%
+  );
+  color: var(--witch-lavender);
+  border-radius: 15px;
+  border: 1px solid var(--witch-mauve);
   display: none;
   z-index: 1000;
+  box-shadow:
+    0 10px 30px var(--witch-shadow),
+    inset 0 0 20px rgba(168, 87, 126, 0.1);
 }
+
 .social-list-item {
-  padding: 10px;
+  padding: 12px;
+  transition: all 0.3s ease;
+  border-radius: 8px;
 }
+
 .social-list-item > a {
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
+  color: var(--witch-lavender);
 }
+
+.social-list-item > a i {
+  font-size: 1.2rem;
+  margin-right: 12px;
+  color: var(--witch-mauve);
+}
+
 .social-list-divider {
-  border: 0.5px solid var(--foreground);
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 20%,
+    var(--witch-mauve) 50%,
+    transparent 80%
+  );
+  margin: 8px 0;
+  opacity: 0.5;
 }
+
 .social-list-item:hover {
-  background-color: var(--foreground);
-  color: var(--background);
+  background: rgba(168, 87, 126, 0.2);
+  transform: translateX(3px);
 }
+
+.social-list-item:hover > a {
+  color: var(--witch-rose);
+}
+
 .is-dark {
-  --foreground: #E1F6F9;
-  --background: #8F2447bb;
+  --foreground: var(--witch-lavender);
+  --background: var(--witch-black);
+  --accent: var(--witch-mauve);
+  --border: var(--witch-rose);
+  --highlight: var(--witch-plum);
 }
+
+/* Dark mode specific adjustments */
+.is-dark main {
+  background: linear-gradient(135deg,
+    rgba(10, 0, 9, 0.95) 0%,
+    rgba(43, 27, 61, 0.9) 100%
+  );
+  color: var(--witch-lavender);
+  border-color: var(--witch-rose);
+  box-shadow:
+    /* Mystical rose glow for dark mode */
+    0 0 80px rgba(168, 87, 126, 0.5),
+    0 0 120px rgba(212, 165, 199, 0.3),
+    /* Standard shadow */
+    0 10px 40px rgba(0, 0, 0, 0.8),
+    /* Inner glow */
+    inset 0 0 60px rgba(168, 87, 126, 0.1);
+}
+
+.is-dark h1 { color: var(--witch-mauve); }
+.is-dark h2, .is-dark h3 { color: var(--witch-lavender); }
+
+.is-dark a {
+  color: var(--witch-mauve);
+}
+
+.is-dark a:hover {
+  color: var(--witch-rose);
+}
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Griffy', cursive;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(-1deg); }
+  75% { transform: rotate(1deg); }
+}
+
+h1 {
+  color: var(--witch-plum);
+  font-size: 2.8rem;
+  text-shadow: 3px 3px 0px var(--witch-rose),
+               4px 4px 8px rgba(168, 87, 126, 0.4);
+  transform: rotate(-2deg);
+  display: inline-block;
+  animation: wiggle 4s ease-in-out infinite;
+}
+
+h2 {
+  color: var(--witch-purple);
+  font-size: 2.2rem;
+  text-shadow: 2px 2px 4px rgba(68, 39, 90, 0.3);
+}
+
+h3 {
+  color: var(--witch-purple);
+  font-size: 1.6rem;
+  font-family: 'Kalam', cursive;
+  font-weight: 700;
+}
+
+p {
+  line-height: 1.8;
+  margin-bottom: 1.2em;
+}
+
+/* Form elements */
+input, textarea, select {
+  font-family: 'Kalam', cursive;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 12px 16px;
+  border: 2px solid var(--witch-plum);
+  border-radius: 15px;
+  background: rgba(245, 245, 245, 0.95);
+  color: var(--witch-purple);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><line x1="12" y1="6" x2="12" y2="42" stroke="%232B1B3D" stroke-width="2"/><line x1="8" y1="6" x2="16" y2="6" stroke="%232B1B3D" stroke-width="2"/><line x1="8" y1="42" x2="16" y2="42" stroke="%232B1B3D" stroke-width="2"/><circle cx="12" cy="24" r="3" fill="%23A8577E" opacity="0.5"/></svg>') 12 24, text;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--witch-rose);
+  box-shadow: 0 0 0 3px rgba(168, 87, 126, 0.15);
+}
+
+button, input[type="submit"], input[type="button"] {
+  font-family: 'Griffy', cursive;
+  font-weight: 400;
+  padding: 14px 28px;
+  background: linear-gradient(135deg,
+    var(--witch-plum) 0%,
+    var(--witch-purple) 100%
+  );
+  color: var(--witch-moon);
+  border: 3px solid transparent;
+  border-radius: 30px;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g transform="translate(12 12) rotate(-45 12 12)" filter="url(%23glow)"><circle cx="12" cy="6" r="5.5" fill="%23A8577E"/><circle cx="6" cy="12" r="5.5" fill="%23A8577E"/><circle cx="18" cy="12" r="5.5" fill="%23A8577E"/><circle cx="12" cy="18" r="5.5" fill="%23A8577E"/><circle cx="12" cy="12" r="4" fill="%23D4A5C7"/><path d="M12 18 L12 36" stroke="%232B1B3D" stroke-width="2.5"/><path d="M10 34 L8 38" stroke="%232B1B3D" stroke-width="2"/><path d="M14 34 L16 38" stroke="%232B1B3D" stroke-width="2"/></g><circle cx="3" cy="3" r="2" fill="%23D4A5C7" opacity="0.9"/></svg>') 0 0, url('https://cdn.nhcarrigan.com/cursors/pointer.cur'), pointer;
+  transition: all 0.3s ease;
+  text-transform: none;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transform: rotate(-1deg);
+}
+
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+  transform: translateY(-3px) rotate(1deg) scale(1.05);
+  box-shadow: 0 8px 25px rgba(68, 39, 90, 0.4),
+              0 0 30px rgba(168, 87, 126, 0.3);
+  border-color: var(--witch-rose);
+}
+
+/* Lists */
+ul, ol {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+ul li::marker {
+  content: "✦ ";
+  color: var(--witch-rose);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background: var(--witch-plum);
+  color: var(--witch-moon);
+}
+
+tr:nth-child(even) {
+  background: rgba(212, 165, 199, 0.05);
+}
+
+tr:hover {
+  background: rgba(168, 87, 126, 0.1);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 5px wavy var(--witch-rose);
+  padding-left: 20px;
+  margin: 1em 0;
+  font-family: 'Griffy', cursive;
+  font-style: normal;
+  color: var(--witch-plum);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  background: linear-gradient(90deg,
+    rgba(168, 87, 126, 0.05) 0%,
+    transparent 50%);
+  position: relative;
+}
+
+/* Code blocks */
+code, pre {
+  font-family: 'Courier New', monospace;
+  background: rgba(43, 27, 61, 0.05);
+  color: var(--witch-purple);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+pre {
+  padding: 15px;
+  overflow-x: auto;
+  border: 1px solid var(--witch-plum);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--witch-lavender);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--witch-plum);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--witch-purple);
+}
+
+/* Selection */
+::selection {
+  background: var(--witch-rose);
+  color: var(--witch-moon);
+}
+
+::-moz-selection {
+  background: var(--witch-rose);
+  color: var(--witch-moon);
+}
+
+/* Draggable elements */
+[draggable="true"] {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><g transform="translate(12 12)"><path d="M12 2 L2 12 L12 22 L22 12 Z" fill="%232B1B3D"/><circle cx="12" cy="12" r="6" fill="%23A8577E"/><circle cx="12" cy="12" r="4" fill="%23D4A5C7"/><path d="M12 4 L12 0 M12 24 L12 20 M4 12 L0 12 M24 12 L20 12" stroke="%232B1B3D" stroke-width="2"/></g></svg>') 12 12, move;
+}
+
+/* Special decorative text classes */
+.witchy-accent {
+  font-family: 'Creepster', cursive;
+  letter-spacing: 3px;
+  text-shadow: 3px 3px 0px var(--witch-rose),
+               4px 4px 8px rgba(168, 87, 126, 0.5);
+  color: var(--witch-purple);
+  transform: skew(-5deg);
+  display: inline-block;
+}
+
+.mystical-text {
+  font-family: 'Henny Penny', 'Vampyr', cursive;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(68, 39, 90, 0.4);
+}
+
+.spooky-title {
+  font-family: 'Creepster', cursive;
+  background: linear-gradient(45deg,
+    var(--witch-purple) 0%,
+    var(--witch-rose) 50%,
+    var(--witch-mauve) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
 @media screen and (max-width: 625px) {
   #tree-nation-offset-website {
     display: none;
@@ -338,7 +736,7 @@ a {
 const nhcarriganHeadersFooter = document.createElement("footer");
 nhcarriganHeadersFooter.innerHTML = `
 <div id="footer-inner-container">
-<p id="footer-copyright">&copy; <a href="https://nhcarrigan.com" target="_blank">Naomi Carrigan</a></p>
+<p id="footer-copyright" style="margin: 0; display: flex; align-items: center;">&copy; <a href="https://nhcarrigan.com" target="_blank" style="margin-left: 5px;">Naomi Carrigan</a></p>
 <button id="show-socials-button" type="button">
   <i class="fa-solid fa-share-nodes"></i> Connect with Us
 </button>
@@ -580,23 +978,27 @@ nhcarriganHeadersCta.style.position = "fixed";
 nhcarriganHeadersCta.style.top = "50%";
 nhcarriganHeadersCta.style.left = "50%";
 nhcarriganHeadersCta.style.transform = "translate(-50%, -50%)";
-nhcarriganHeadersCta.style.padding = "10px";
-nhcarriganHeadersCta.style.borderRadius = "10px";
-nhcarriganHeadersCta.style.backgroundColor = "var(--background)";
-nhcarriganHeadersCta.style.color = "var(--foreground)";
+nhcarriganHeadersCta.style.padding = "40px";
+nhcarriganHeadersCta.style.borderRadius = "20px";
+nhcarriganHeadersCta.style.backgroundColor = "var(--witch-moon)";
+nhcarriganHeadersCta.style.color = "var(--witch-purple)";
 nhcarriganHeadersCta.style.textAlign = "center";
 nhcarriganHeadersCta.style.width = "95%";
 nhcarriganHeadersCta.style.maxWidth = "400px";
+nhcarriganHeadersCta.style.border = "2px solid var(--witch-plum)";
+nhcarriganHeadersCta.style.boxShadow = "0 20px 40px rgba(0, 0, 0, 0.5)";
 nhcarriganHeadersCta.id = "community-cta";
 nhcarriganHeadersCta.innerHTML = `
-  <h1 autofocus>Hello~!</h1>
-  <div style="display: flex; justify-content: space-around; margin-bottom: 10px;">
-    <img src="https://cdn.nhcarrigan.com/logo.png" alt="NHCarrigan Logo" style="width: 100px; height: 100px;">
-    <p>
-      Consider joining our community so you can keep up to date on all of our latest activities!
+  <h1 autofocus style="font-size: 2rem; margin-bottom: 20px; color: var(--witch-plum);">Welcome~! 🌙</h1>
+  <div style="display: flex; justify-content: space-around; margin-bottom: 25px; align-items: center;">
+    <img src="https://cdn.nhcarrigan.com/logo.png" alt="NHCarrigan Logo" style="width: 80px; height: 80px; filter: hue-rotate(280deg) saturate(0.7);">
+    <p style="flex: 1; margin-left: 20px; line-height: 1.8;">
+      Join our magical community to stay connected with our latest projects and activities!
     </p>
   </div>
-  <a href="https://chat.nhcarrigan.com" target="_blank" rel="noreferrer" style="padding: 10px; background: var(--foreground); color: var(--background); outline: none">Okay, take me there~!</a>
+  <a href="https://chat.nhcarrigan.com" target="_blank" rel="noreferrer" style="display: inline-block; padding: 15px 35px; background: linear-gradient(135deg, var(--witch-plum), var(--witch-purple)); color: var(--witch-moon); text-decoration: none; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(68, 39, 90, 0.3);">
+    Join Our Community~! ✨
+  </a>
 `;
 
 const nhcarriganHeadersModalBg = document.createElement("div");
@@ -606,7 +1008,8 @@ nhcarriganHeadersModalBg.style.top = "0";
 nhcarriganHeadersModalBg.style.left = "0";
 nhcarriganHeadersModalBg.style.width = "100vw";
 nhcarriganHeadersModalBg.style.height = "100vh";
-nhcarriganHeadersModalBg.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+nhcarriganHeadersModalBg.style.background = "rgba(10, 0, 9, 0.7)";
+nhcarriganHeadersModalBg.style.backdropFilter = "blur(5px)";
 nhcarriganHeadersModalBg.style.display = "none";
 nhcarriganHeadersModalBg.id = "modal-bg";
 const nhcarriganHeadersCloseModal = (): void => {
