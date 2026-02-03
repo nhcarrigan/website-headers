@@ -989,15 +989,15 @@ nhcarriganHeadersCta.style.border = "2px solid var(--witch-plum)";
 nhcarriganHeadersCta.style.boxShadow = "0 20px 40px rgba(0, 0, 0, 0.5)";
 nhcarriganHeadersCta.id = "community-cta";
 nhcarriganHeadersCta.innerHTML = `
-  <h1 autofocus style="font-size: 2rem; margin-bottom: 20px; color: var(--witch-plum);">Welcome~! 🌙</h1>
+  <h1 autofocus style="font-size: 2rem; margin-bottom: 20px; color: var(--witch-plum);">Welcome~!</h1>
   <div style="display: flex; justify-content: space-around; margin-bottom: 25px; align-items: center;">
-    <img src="https://cdn.nhcarrigan.com/logo.png" alt="NHCarrigan Logo" style="width: 80px; height: 80px; filter: hue-rotate(280deg) saturate(0.7);">
+    <img src="https://cdn.nhcarrigan.com/logo.png" alt="NHCarrigan Logo" style="width: 80px; height: 80px;">
     <p style="flex: 1; margin-left: 20px; line-height: 1.8;">
-      Join our magical community to stay connected with our latest projects and activities!
+      Join Naomi's personal Discord community to stay connected with her latest projects and activities!
     </p>
   </div>
   <a href="https://chat.nhcarrigan.com" target="_blank" rel="noreferrer" style="display: inline-block; padding: 15px 35px; background: linear-gradient(135deg, var(--witch-plum), var(--witch-purple)); color: var(--witch-moon); text-decoration: none; border-radius: 30px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(68, 39, 90, 0.3);">
-    Join Our Community~! ✨
+    Join Naomi's Discord~!
   </a>
 `;
 
