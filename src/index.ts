@@ -180,13 +180,9 @@ nhcarriganHeadersLargeIcon.href
 const nhcarriganHeadersStyles = document.createElement("style");
 nhcarriganHeadersStyles.id = "nhcarrigan-global-styles";
 nhcarriganHeadersStyles.innerHTML = `
-@font-face {
-  font-family: 'Vampyr';
-  src: url('https://cdn.nhcarrigan.com/fonts/vampyr.ttf') format('truetype');
-}
-
 /* Import fun and whimsical fonts! */
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Creepster&family=Griffy&family=Henny+Penny&display=swap');
+
 
 :root {
   /* Witchy Purple Rose Palette */
@@ -686,7 +682,7 @@ pre {
 }
 
 .mystical-text {
-  font-family: 'Henny Penny', 'Vampyr', cursive;
+  font-family: 'Henny Penny', cursive;
   letter-spacing: 2px;
   text-shadow: 2px 2px 4px rgba(68, 39, 90, 0.4);
 }
