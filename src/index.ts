@@ -699,20 +699,43 @@ pre {
   text-shadow: none;
 }
 
-@media screen and (max-width: 625px) {
-  #tree-nation-offset-website {
+@media screen and (max-width: 1000px) {
+  #tree-nation-tree-counter {
     display: none;
-  }
-  footer, #footer-inner-container {
-    height: 50px;
-    justify-content: space-around;
-  }
-  main {
-    margin-bottom: 60px;
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 835px) {
+  #theme-select-button {
+    font-size: 10pt;
+    padding: 8px 16px;
+  }
+  #show-socials-button {
+    font-size: 10pt;
+    padding: 8px 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #tree-nation-offset-website {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  footer, #footer-inner-container {
+    height: 75px;
+    justify-content: space-around;
+  }
+  main {
+    margin-bottom: 85px;
+  }
+  #footer-copyright {
+    font-size: 10pt;
+  }
+}
+
+@media screen and (max-width: 560px) {
   #donate-badge {
     display: none;
   }
@@ -732,6 +755,7 @@ pre {
 const nhcarriganHeadersFooter = document.createElement("footer");
 nhcarriganHeadersFooter.innerHTML = `
 <div id="footer-inner-container">
+<div id="tree-nation-tree-counter" data-widget-type="tree-counter" data-tree-nation-code="52a9395caa57df28" data-lang="en" data-theme="dark"></div>
 <p id="footer-copyright" style="margin: 0; display: flex; align-items: center;">&copy; <a href="https://nhcarrigan.com" target="_blank" style="margin-left: 5px;">Naomi Carrigan</a></p>
 <button id="show-socials-button" type="button">
   <i class="fa-solid fa-share-nodes"></i> Connect with Us
@@ -742,7 +766,7 @@ nhcarriganHeadersFooter.innerHTML = `
 <a id="donate-badge" href="https://buy.stripe.com/cN24iTfqu1j6b3afZ2" target="_blank" rel="noreferrer">
   <img src="https://cdn.nhcarrigan.com/donate.png" alt="Donate" style="width: 70px; height: 70px;">
 </a>
-<div id="tree-nation-offset-website"></div>
+<div id="tree-nation-offset-website" data-widget-type="offset-website" data-tree-nation-code="a17464e0cd351220" data-lang="en" data-theme="dark"></div>
 </div>
 <div id="social-list">
   <div class="social-list-item">
@@ -804,7 +828,7 @@ nhcarriganHeadersFooter.innerHTML = `
 
 const nhcarriganHeadersTreeNation = document.createElement("script");
 nhcarriganHeadersTreeNation.src
-  = "https://widgets.tree-nation.com/js/widgets/v1/widgets.min.js?v=1.0";
+  = "https://widgets.tree-nation.com/js/widgets/v3/widgets.min.js";
 const nhcarriganHeadersTreeNationBottom = document.createElement("script");
 nhcarriganHeadersTreeNationBottom.defer = true;
 nhcarriganHeadersTreeNationBottom.async = true;
