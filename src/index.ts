@@ -848,7 +848,7 @@ const interval = setInterval(() => {
 }, 1000);
 `;
 const nhcarriganHeadersFontAwesome = document.createElement("script");
-nhcarriganHeadersFontAwesome.src = "https://kit.fontawesome.com/f949111719.js";
+nhcarriganHeadersFontAwesome.src = "https://cdn.nhcarrigan.com/font-awesome/all.min.js";
 const nhcarriganHeadersAnalytics = document.createElement("script");
 nhcarriganHeadersAnalytics.defer = true;
 nhcarriganHeadersAnalytics.src
