@@ -1011,7 +1011,7 @@ nhcarriganHeadersCta.id = "community-cta";
 nhcarriganHeadersCta.innerHTML = `
   <h1 autofocus style="font-size: 2rem; margin-bottom: 20px; color: var(--witch-plum);">Welcome~!</h1>
   <div style="display: flex; justify-content: space-around; margin-bottom: 25px; align-items: center;">
-    <img src="https://cdn.nhcarrigan.com/logo.png" alt="NHCarrigan Logo" style="width: 80px; height: 80px;">
+    <img src="https://cdn.nhcarrigan.com/profile_personal.jpg" alt="Naomi's Avatar" style="width: 80px; height: 80px; border-radius: 50%;">
     <p style="flex: 1; margin-left: 20px; line-height: 1.8;">
       Join Naomi's personal Discord community to stay connected with her latest projects and activities!
     </p>
