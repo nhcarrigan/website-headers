@@ -776,7 +776,7 @@ nhcarriganHeadersFooter.innerHTML = `
   </div>
   <hr class="social-list-divider" />
   <div class="social-list-item">
-    <a href="https://forum.nhcarrigan.com" target="_blank" rel="noreferrer">
+    <a href="https://support.nhcarrigan.com" target="_blank" rel="noreferrer">
       <i class="fa-brands fa-discourse"></i><span>Sign up for our forum~!</span>
     </a>
   </div>
@@ -848,12 +848,14 @@ const interval = setInterval(() => {
 }, 1000);
 `;
 const nhcarriganHeadersFontAwesome = document.createElement("script");
-nhcarriganHeadersFontAwesome.src = "https://cdn.nhcarrigan.com/font-awesome/all.min.js";
+nhcarriganHeadersFontAwesome.src
+  = "https://cdn.nhcarrigan.com/font-awesome/all.min.js";
+
 const nhcarriganHeadersAnalytics = document.createElement("script");
 nhcarriganHeadersAnalytics.defer = true;
 nhcarriganHeadersAnalytics.src
-
   = "https://analytics.nhcarrigan.com/js/pa-YUXAn1vhhRttySUAw_LMN.js";
+
 const nhcarriganHeadersAnalytics2 = document.createElement("script");
 nhcarriganHeadersAnalytics2.innerHTML = `
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};

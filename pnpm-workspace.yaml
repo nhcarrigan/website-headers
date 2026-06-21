@@ -20,3 +20,6 @@ blockExoticSubdeps: true
 
 # Allow the lockfile to be updated during install (set to true in CI for stricter reproducibility)
 preferFrozenLockfile: false
+
+allowBuilds:
+  esbuild: set this to true or false
