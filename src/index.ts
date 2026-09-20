@@ -304,6 +304,7 @@ footer {
     0 -5px 20px rgba(168, 87, 126, 0.4),
     /* Standard shadow */
     0 -5px 20px var(--witch-shadow);
+  z-index: 1000;
 }
 
 #footer-inner-container {
