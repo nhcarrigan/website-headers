@@ -6,6 +6,31 @@ To work on the file locally, use `pnpm dev`. This command will compile the TypeS
 
 When building the file, it is important to use `pnpm build` so that the minification step is run. Running `tsc` directly will bypass this step - while this is perfectly acceptable for debugging locally, the file MUST be minified before uploading to our CDN.
 
+## Design System
+
+The injected stylesheet is the shared visual language for every page. It uses the official palette from [style.nhcarrigan.com](https://style.nhcarrigan.com), system fonts for text, and Griffy for the wordmark only.
+
+- **Design tokens** (`--witch-*` colours, `--font-*`, `--radius`, `--surface`, `--foreground`, `--link` and more) load on every page. The tokens switch automatically when the page has the `is-dark` class, which the footer's theme toggle controls.
+- **Page chrome and element defaults** style `main`, headings, links, buttons, forms, lists, tables, blockquotes and code. `main` is a centred card, and the footer sits at the end of the page rather than being fixed to the viewport.
+- Pages should use the tokens (for example `var(--surface)`) rather than hard-coded colours, so dark mode keeps working.
+
+## Opting Out
+
+Bespoke pages, such as the company landing page, can opt out of parts of this library by listing features in a space-separated `data-nhcarrigan-exclude` attribute on the `html` element:
+
+```html
+<html lang="en-GB" data-nhcarrigan-exclude="layout footer cta ads">
+```
+
+| Feature  | Effect                                                                              |
+| -------- | ----------------------------------------------------------------------------------- |
+| `layout` | Skips the shared page chrome and element styles. Design tokens still load.          |
+| `footer` | Skips the shared footer.                                                            |
+| `cta`    | Skips the community popup.                                                          |
+| `ads`    | Skips the advertising script.                                                       |
+
+Metadata, icons, consent, analytics and HubSpot always load. Any meta tag or icon a page already declares is left alone, so pages can ship their own for crawlers that do not run scripts.
+
 ## Live Version
 
 This page is currently deployed. [View the live website.]
