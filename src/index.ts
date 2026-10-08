@@ -11,7 +11,7 @@ console.log(`
 Loading NHCarrigan library v${nhcarriganHeadersVersion}.
 Copyright (c) ${new Date().getFullYear().
   toString()} NHCarrigan
-Changelog: https://git.nhcarrigan.com/nhcarrigan/website-headers/releases
+Changelog: https://github.com/nhcarrigan/website-headers/releases
 Licensed under our public license: https://docs.nhcarrigan.com/legal/license
 Questions? Contact us at https://docs.nhcarrigan.com/about/contact
 ========================================
@@ -555,6 +555,7 @@ pre code {
 
 /* Footer */
 footer {
+  order: 1;
   flex-shrink: 0;
   width: 100%;
   margin-top: auto;
@@ -862,6 +863,17 @@ nhcarriganHeadersHead?.appendChild(nhcarriganHeadersHubspot);
 
 if (!nhcarriganHeadersIsExcluded("footer")) {
   nhcarriganHeadersBody?.appendChild(nhcarriganHeadersFooter);
+
+  /*
+   * This script is often loaded with async, so it can run before the page's
+   * own content has been parsed. Re-append the footer once parsing finishes so
+   * it always ends up after the content rather than before it.
+   */
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      nhcarriganHeadersBody?.appendChild(nhcarriganHeadersFooter);
+    });
+  }
 }
 nhcarriganHeadersBody?.appendChild(nhcarriganHeadersTreeNationBottom);
 // #endregion
