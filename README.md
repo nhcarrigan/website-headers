@@ -8,7 +8,7 @@ When building the file, it is important to use `pnpm build` so that the minifica
 
 ## Design System
 
-The injected stylesheet is the shared visual language for every page. It uses the official palette from [style.nhcarrigan.com](https://style.nhcarrigan.com), system fonts for text, and Griffy for the wordmark only.
+The injected stylesheet is the shared visual language for every page. It uses the official palette from [nhcarrigan.com/style](https://nhcarrigan.com/style/), system fonts for text, and Griffy for the wordmark only.
 
 - **Design tokens** (`--witch-*` colours, `--font-*`, `--radius`, `--surface`, `--foreground`, `--link` and more) load on every page. The tokens switch automatically when the page has the `is-dark` class, which the footer's theme toggle controls.
 - **Page chrome and element defaults** style `main`, headings, links, buttons, forms, lists, tables, blockquotes and code. `main` is a centred card, and the footer sits at the end of the page rather than being fixed to the viewport.

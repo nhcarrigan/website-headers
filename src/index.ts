@@ -209,7 +209,7 @@ nhcarriganHeadersTokens.innerHTML = `
 @import url('https://fonts.googleapis.com/css2?family=Griffy&display=swap');
 
 :root {
-  /* Official palette (https://style.nhcarrigan.com) */
+  /* Official palette (https://nhcarrigan.com/style/) */
   --witch-purple: #2B1B3D;
   --witch-plum: #44275A;
   --witch-rose: #A8577E;
